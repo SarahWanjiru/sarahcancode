@@ -30,7 +30,7 @@ export default function Home() {
                   src="/homepage.jpg"
                   alt="Coding workspace"
                   width={600}
-                  height={400}
+                  height={900}
                   className="w-full h-auto"
                   priority
                 />
