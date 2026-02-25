@@ -9,9 +9,11 @@ export default function Navigation() {
 
   const links = [
     { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Work' },
     { href: '/about', label: 'About' },
-    { href: '/tech-stack', label: 'Stack' },
+     { href: '/projects', label: 'Projects' },
+    { href: '/tech-stack', label: 'Tech Stack' },
+     { href: '/blog', label: 'Blog' },
+
   ]
 
   return (
