@@ -10,18 +10,17 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface text-accent text-sm font-medium rounded-full mb-6">
                 <span className="w-2 h-2 bg-accent rounded-full"></span>
-                OPEN TO WORK
+                AVAILABLE FOR SOFTWARE & CLOUD PROJECTS
               </div>
 
               <h1 className="text-5xl lg:text-6xl font-bold text-text-primary mb-6">
-                Designing the{' '}
-                <span className="text-accent">Future of Web</span>
+                Engineering Reliable Systems{' '}
+                <span className="text-accent">From Interface to Infrastructure</span>
               </h1>
 
               <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-                I create high-performance, visually stunning digital experiences. 
-                Full Stack Developer blending technical mastery with artistic precision 
-                to build accessible, human-centered products.
+               I’m Sarah, a Software Engineer building modern web applications backed by scalable cloud architecture and structured DevOps practices.
+               I care about clean systems, performance, and long-term sustainability — not just shipping fast, but building right.
               </p>
             </div>
 
