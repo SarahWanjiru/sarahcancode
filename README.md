@@ -12,12 +12,12 @@ This is a professional portfolio website designed to demonstrate:
 
 ## Features
 
-- ✨ **Modern Tech Stack**: Next.js 16 App Router, React 19, TypeScript
-- 🎨 **Custom Design System**: Tailwind CSS 4 with CSS variables for theming
-- 🌓 **Dark Mode**: Context-based theme switching with persistent preferences
-- 📱 **Fully Responsive**: Mobile-first design approach
+-  **Modern Tech Stack**: Next.js 16 App Router, React 19, TypeScript
+-  **Custom Design System**: Tailwind CSS 4 with CSS variables for theming
+-  **Dark Mode**: Context-based theme switching with persistent preferences
+-  **Fully Responsive**: Mobile-first design approach
 - ⚡ **Performance Optimized**: Next.js Image optimization, static generation
-- 🧭 **Multi-page Navigation**: Home, About, Projects, Tech Stack, Blog, Testimonials, Contact
+- **Multi-page Navigation**: Home, About, Projects, Tech Stack, Blog, Testimonials, Contact
 
 ## Tech Stack
 
