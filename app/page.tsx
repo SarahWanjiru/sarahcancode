@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-bg-secondary">
+    <div className="min-h-screen bg-bg-primary">
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-bg-primary">
+      <section id="about" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left Content */}
@@ -220,6 +220,108 @@ export default function Home() {
                   <p className="text-text-secondary text-sm">
                     Projects Completed
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-accent rounded-full"></span>
+            PROJECTS
+          </div>
+
+          <h2 className="text-5xl font-bold text-text-primary mb-12">
+            Featured Work
+          </h2>
+
+          {/* Category Tabs */}
+          <div className="flex gap-4 mb-12 border-b border-border">
+            <button className="px-6 py-3 text-sm font-medium text-accent border-b-2 border-accent">
+              Web Development
+            </button>
+            <button className="px-6 py-3 text-sm font-medium text-text-secondary hover:text-text-primary">
+              App Development
+            </button>
+            <button className="px-6 py-3 text-sm font-medium text-text-secondary hover:text-text-primary">
+              Cloud & DevOps
+            </button>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Project Card 1 */}
+            <div className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="h-48 bg-bg-secondary"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-text-primary mb-2">
+                  E-Commerce Platform
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Full-stack marketplace with real-time inventory and payment processing
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    Next.js
+                  </span>
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    TypeScript
+                  </span>
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    Stripe
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project Card 2 */}
+            <div className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="h-48 bg-bg-secondary"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-text-primary mb-2">
+                  SaaS Dashboard
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Analytics platform with real-time data visualization and reporting
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    React
+                  </span>
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    D3.js
+                  </span>
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    Node.js
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project Card 3 */}
+            <div className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="h-48 bg-bg-secondary"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-text-primary mb-2">
+                  Portfolio Website
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Modern portfolio with dark mode and smooth animations
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    Next.js
+                  </span>
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    Tailwind
+                  </span>
+                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
+                    Framer
+                  </span>
                 </div>
               </div>
             </div>
