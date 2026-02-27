@@ -5,6 +5,7 @@ A modern, performant portfolio website showcasing software engineering expertise
 ## About This Project
 
 This is a professional portfolio website designed to demonstrate:
+
 - **Full-stack development** capabilities with modern React and Next.js
 - **Cloud-native thinking** through scalable architecture patterns
 - **DevOps mindset** with clean code structure and deployment readiness
@@ -12,10 +13,10 @@ This is a professional portfolio website designed to demonstrate:
 
 ## Features
 
--  **Modern Tech Stack**: Next.js 16 App Router, React 19, TypeScript
--  **Custom Design System**: Tailwind CSS 4 with CSS variables for theming
--  **Dark Mode**: Context-based theme switching with persistent preferences
--  **Fully Responsive**: Mobile-first design approach
+- **Modern Tech Stack**: Next.js 16 App Router, React 19, TypeScript
+- **Custom Design System**: Tailwind CSS 4 with CSS variables for theming
+- **Dark Mode**: Context-based theme switching with persistent preferences
+- **Fully Responsive**: Mobile-first design approach
 - ⚡ **Performance Optimized**: Next.js Image optimization, static generation
 - **Multi-page Navigation**: Home, About, Projects, Tech Stack, Blog, Testimonials, Contact
 
@@ -50,7 +51,7 @@ sarahcancode/
 
 ### Prerequisites
 
-- Node.js 20+ 
+- Node.js 20+
 - pnpm (recommended) or npm
 
 ### Installation
