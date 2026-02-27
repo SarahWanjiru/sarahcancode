@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("Web Development");
   return (
     <div className="min-h-screen bg-bg-primary">
       {/* Hero Section */}
@@ -240,16 +244,22 @@ export default function Home() {
           </h2>
 
           {/* Category Tabs */}
-          <div className="flex gap-4 mb-12 border-b border-border">
-            <button className="px-6 py-3 text-sm font-medium text-accent border-b-2 border-accent">
-              Web Development
-            </button>
-            <button className="px-6 py-3 text-sm font-medium text-text-secondary hover:text-text-primary">
-              App Development
-            </button>
-            <button className="px-6 py-3 text-sm font-medium text-text-secondary hover:text-text-primary">
-              Cloud & DevOps
-            </button>
+          <div className="flex gap-4 mb-12 border-b border-border" role="tablist">
+            {["Web Development", "App Development", "Cloud & DevOps"].map((category) => (
+              <button
+                key={category}
+                role="tab"
+                aria-selected={selectedCategory === category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-6 py-3 text-sm font-medium ${
+                  selectedCategory === category
+                    ? "text-accent border-b-2 border-accent"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
 
           {/* Projects Grid */}
