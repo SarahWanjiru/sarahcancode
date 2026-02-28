@@ -342,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section id="tech-stack" className="py-20 px-6 bg-bg-secondary">
+      <section id="tech-stack" className="py-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-6">
             ⚡ INTERACTIVE VISUALIZATION

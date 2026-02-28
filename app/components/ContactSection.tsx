@@ -95,11 +95,11 @@ export default function ContactSection() {
                 </div>
                 <div className="flex items-center gap-4 text-text-secondary">
                   <Phone className="w-5 h-5" />
-                  <span>+1 (555) 000-0000</span>
+                  <span>+254 720 171 697</span>
                 </div>
                 <div className="flex items-center gap-4 text-text-secondary">
                   <MapPin className="w-5 h-5" />
-                  <span>San Francisco, CA</span>
+                  <span>Nairobi Kenya </span>
                 </div>
               </div>
             </div>
