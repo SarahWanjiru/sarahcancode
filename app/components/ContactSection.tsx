@@ -4,23 +4,18 @@ import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 px-6 bg-bg-secondary">
+    <section id="contact" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-6">
-            <span className="w-2 h-2 bg-accent rounded-full"></span>
-            CONNECT
-          </div>
-          <h2 className="text-5xl font-bold text-text-primary mb-6">
-            Let&apos;s Talk.
-          </h2>
-          <p className="text-text-secondary max-w-2xl mx-auto">
-            Ready to start your next project? Fill out the form below or find me on
-            social platforms to discuss how we can build something great together.
-          </p>
+        <div className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-6">
+          <span className="w-2 h-2 bg-accent rounded-full"></span>
+          CONNECT
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <h2 className="text-5xl font-bold text-text-primary mb-12">
+          Let&apos;s Talk.
+        </h2>
+
+        <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-text-primary mb-6">
