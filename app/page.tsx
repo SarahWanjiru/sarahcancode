@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Web Development");
@@ -490,6 +491,9 @@ export default function Home() {
 
       {/* Contact Section */}
       <ContactSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
