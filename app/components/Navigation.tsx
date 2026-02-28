@@ -4,11 +4,11 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Navigation() {
   const links = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#tech-stack", label: "Tech Stack" },
-    { href: "#blog", label: "Blog" },
+    { href: "/", label: "Home" },
+    { href: "/#about", label: "About" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#tech-stack", label: "Tech Stack" },
+    { href: "/blog", label: "Blog" },
   ];
 
   return (
@@ -16,7 +16,7 @@ export default function Navigation() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a
-            href="#home"
+            href="/"
             className="flex items-center gap-2 text-lg font-bold text-text-primary"
           >
             <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white text-sm">
