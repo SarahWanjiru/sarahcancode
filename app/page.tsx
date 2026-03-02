@@ -8,11 +8,11 @@ import Footer from "./components/Footer";
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Web Development");
   return (
-    <div className="min-h-screen bg-bg-primary">
+    <div className="min-h-screen bg-bg-primary px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-12 px-4 sm:pt-32 sm:pb-20 sm:px-6">
+      <section id="home" className="pt-24 pb-12 sm:pt-32 sm:pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface text-accent text-xs sm:text-sm font-medium rounded-full mb-4 sm:mb-6">
                 <span className="w-2 h-2 bg-accent rounded-full"></span>
@@ -25,34 +25,22 @@ export default function Home() {
                   From Interface to Infrastructure
                 </span>
               </h1>
-
-              <p className="text-base sm:text-lg text-text-secondary mb-6 sm:mb-8 leading-relaxed">
-                I'm Sarah, a Software Engineer building modern web applications
-                backed by scalable cloud architecture and structured DevOps
-                practices. I care about clean systems, performance, and
-                long-term sustainability — not just shipping fast, but building
-                right.
-              </p>
             </div>
 
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/homepage.jpg"
-                  alt="Coding workspace"
-                  width={600}
-                  height={900}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
+            <Image
+              src="/herosection.jpg"
+              alt="Coding workspace"
+              width={600}
+              height={900}
+              className="w-full h-auto"
+              priority
+            />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 px-4 sm:py-20 sm:px-6">
+      <section id="about" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* Left Content */}
@@ -234,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 px-4 sm:py-20 sm:px-6">
+      <section id="projects" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
           <div className="inline-flex items-center gap-2 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <span className="w-2 h-2 bg-accent rounded-full"></span>
@@ -342,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* Tech Stack Section */}
-      <section id="tech-stack" className="py-12 px-4 sm:py-20 sm:px-6">
+      <section id="tech-stack" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-xs sm:text-sm font-medium rounded-full mb-4 sm:mb-6">
             ⚡ INTERACTIVE VISUALIZATION
