@@ -42,7 +42,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Left Content */}
             <div>
               <div className="inline-flex items-center gap-3 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
@@ -68,104 +68,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Experience */}
-              <div className="mt-12 sm:mt-16">
-                <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-6 sm:mb-8">
-                  Experience
-                </h3>
-                <div className="space-y-8">
-                  {/* Job 1 */}
-                  <div className="border-l-2 border-accent pl-4 sm:pl-6">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-1">
-                      <h4 className="text-lg sm:text-xl font-bold text-text-primary">
-                        Senior Product Designer
-                      </h4>
-                      <span className="text-sm text-text-secondary">
-                        2021 — Present
-                      </span>
-                    </div>
-                    <a
-                      href="#"
-                      className="text-accent hover:underline mb-3 inline-block"
-                    >
-                      TechFlow Inc.
-                    </a>
-                    <p className="text-text-secondary">
-                      Spearheading the design system 2.0 initiative and
-                      mentoring junior designers. Successfully reduced
-                      design-to-dev handoff time by 40%.
-                    </p>
-                  </div>
-
-                  {/* Job 2 */}
-                  <div className="border-l-2 border-border pl-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-text-primary">
-                        UX Designer
-                      </h4>
-                      <span className="text-sm text-text-secondary">
-                        2019 — 2021
-                      </span>
-                    </div>
-                    <a
-                      href="#"
-                      className="text-accent hover:underline mb-3 inline-block"
-                    >
-                      CreativeAgency
-                    </a>
-                    <p className="text-text-secondary">
-                      Designed end-to-end user flows for major fintech clients.
-                      Collaborated closely with stakeholders to define product
-                      requirements.
-                    </p>
-                  </div>
-
-                  {/* Job 3 */}
-                  <div className="border-l-2 border-border pl-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-text-primary">
-                        Junior Designer
-                      </h4>
-                      <span className="text-sm text-text-secondary">
-                        2017 — 2019
-                      </span>
-                    </div>
-                    <a
-                      href="#"
-                      className="text-accent hover:underline mb-3 inline-block"
-                    >
-                      StartupInc
-                    </a>
-                    <p className="text-text-secondary">
-                      Assisted in UI component creation and marketing
-                      collateral. Gained expertise in agile methodologies and
-                      responsive web design.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Stats */}
-            <div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-surface border border-border rounded-xl p-6">
-                  <p className="text-4xl font-bold text-text-primary mb-2">
-                    5<sup className="text-2xl">+</sup>
-                  </p>
-                  <p className="text-text-secondary text-sm">
-                    Years of Experience
-                  </p>
-                </div>
-                <div className="bg-surface border border-border rounded-xl p-6">
-                  <p className="text-4xl font-bold text-text-primary mb-2">
-                    50<sup className="text-2xl">+</sup>
-                  </p>
-                  <p className="text-text-secondary text-sm">
-                    Projects Completed
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -282,37 +184,11 @@ export default function Home() {
       {/* Tech Stack Section */}
       <section id="tech-stack" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent text-xs sm:text-sm font-medium rounded-full mb-4 sm:mb-6">
-            ⚡ INTERACTIVE VISUALIZATION
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-4 sm:mb-6">
             My Tech Universe
           </h2>
-
-          <p className="text-sm sm:text-base lg:text-lg text-text-secondary max-w-2xl mx-auto mb-8 sm:mb-16 px-4">
-            Hover over any technology to explore my proficiency level and experience. A collection of powerful tools I use to craft digital realities.
-          </p>
-
           {/* Tech Icons Grid */}
           <div className="relative min-h-[300px] sm:min-h-[500px] flex items-center justify-center overflow-hidden">
-            {/* Background Text */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-5 select-none">
-              <div className="text-[60px] sm:text-[120px] font-bold text-text-primary">
-                FRONTEND
-              </div>
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-5 select-none" style={{top: '100px'}}>
-              <div className="text-[60px] sm:text-[120px] font-bold text-text-primary">
-                BACKEND
-              </div>
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-5 select-none" style={{top: '200px'}}>
-              <div className="text-[60px] sm:text-[120px] font-bold text-text-primary">
-                TOOLS
-              </div>
-            </div>
-
             {/* Tech Icons */}
             <div className="relative z-10 scale-75 sm:scale-100">
               {/* React */}
@@ -404,24 +280,6 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-12 sm:mt-20 bg-surface border border-border rounded-2xl p-6 sm:p-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
-              Mastery across the stack.
-            </h3>
-            <p className="text-sm sm:text-base lg:text-lg text-text-secondary mb-6 sm:mb-8">
-              Whether it's frontend magic or backend logic, I bring the right tools to build your vision. Ready to start?
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <a href="#contact" className="px-6 sm:px-8 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors text-center text-sm sm:text-base">
-                Start a Project
-              </a>
-              <a href="#contact" className="px-6 sm:px-8 py-3 border border-border text-text-primary rounded-lg font-medium hover:bg-bg-secondary transition-colors text-center text-sm sm:text-base">
-                Contact Me
-              </a>
             </div>
           </div>
         </div>
