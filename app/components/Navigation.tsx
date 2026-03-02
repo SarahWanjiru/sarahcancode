@@ -25,7 +25,7 @@ export default function Navigation() {
             <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white text-sm">
               SC
             </div>
-            <span className="hidden sm:inline">Sarah Can Code</span>
+            <span>Sarah Can Code</span>
           </a>
 
           {/* Desktop Navigation */}
