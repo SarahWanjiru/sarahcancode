@@ -74,7 +74,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-secondary text-sm">
-            © 2023 Sarah Can Code. All rights reserved.
+            © {new Date().getFullYear()} Sarah Can Code. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
