@@ -2,264 +2,114 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Web Development");
   return (
-    <div className="min-h-screen bg-bg-primary">
+    <div className="min-h-screen bg-bg-primary px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-6">
+      <section id="home" className="pt-24 pb-12 sm:pt-32 sm:pb-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface text-accent text-sm font-medium rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface text-accent text-xs sm:text-sm font-medium rounded-full mb-4 sm:mb-6">
                 <span className="w-2 h-2 bg-accent rounded-full"></span>
-                AVAILABLE FOR SOFTWARE & CLOUD PROJECTS
+                <span className="text-[10px] sm:text-sm">
+                  AVAILABLE FOR PROJECTS
+                </span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-text-primary mb-4 sm:mb-6 leading-tight">
                 Engineering Reliable Systems{" "}
                 <span className="text-accent">
                   From Interface to Infrastructure
                 </span>
               </h1>
-
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-                I'm Sarah, a Software Engineer building modern web applications
-                backed by scalable cloud architecture and structured DevOps
-                practices. I care about clean systems, performance, and
-                long-term sustainability — not just shipping fast, but building
-                right.
-              </p>
             </div>
 
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/homepage.jpg"
-                  alt="Coding workspace"
-                  width={600}
-                  height={900}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
+            <Image
+              src="/herosection.jpg"
+              alt="Coding workspace"
+              width={600}
+              height={900}
+              className="w-full h-auto"
+              priority
+            />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6">
+      <section id="about" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-6">
-                <span className="w-2 h-2 bg-accent rounded-full"></span>
-                ABOUT ME
-              </div>
+          <div className="inline-flex items-center gap-3 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            <span className="w-2 h-2 bg-accent rounded-full"></span>
+            ABOUT ME
+          </div>
 
-              <h2 className="text-5xl lg:text-6xl font-bold text-text-primary mb-8">
-                I craft <span className="text-accent">digital experiences</span>{" "}
-                that matter.
-              </h2>
-
-              <div className="space-y-4 text-text-secondary text-lg leading-relaxed">
-                <p>
-                  I'm Sarah, a multidisciplinary product designer and developer
-                  based in the heart of San Francisco. My journey began in
-                  graphic design, but my curiosity for how things work led me
-                  into the world of code.
-                </p>
-                <p>
-                  Today, I sit at the intersection of design and engineering,
-                  bridging the gap between user needs and business goals. I
-                  believe that the best products are built with empathy,
-                  precision, and a deep understanding of the human experience.
-                </p>
-                <p>
-                  When I'm not pushing pixels or writing clean code, you can
-                  find me exploring the California coast, experimenting with
-                  analog photography, or brewing the perfect cup of coffee.
-                </p>
-              </div>
-
-              {/* Core Competencies */}
-              <div className="mt-12">
-                <h3 className="text-2xl font-bold text-text-primary mb-6">
-                  Core Competencies
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    "Interaction Design",
-                    "Front-end Architecture",
-                    "Design Systems",
-                    "User Research",
-                    "Accessibility (a11y)",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2 bg-surface border border-border rounded-lg text-text-primary text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Experience */}
-              <div className="mt-16">
-                <h3 className="text-2xl font-bold text-text-primary mb-8">
-                  Experience
-                </h3>
-                <div className="space-y-8">
-                  {/* Job 1 */}
-                  <div className="border-l-2 border-accent pl-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-text-primary">
-                        Senior Product Designer
-                      </h4>
-                      <span className="text-sm text-text-secondary">
-                        2021 — Present
-                      </span>
-                    </div>
-                    <a
-                      href="#"
-                      className="text-accent hover:underline mb-3 inline-block"
-                    >
-                      TechFlow Inc.
-                    </a>
-                    <p className="text-text-secondary">
-                      Spearheading the design system 2.0 initiative and
-                      mentoring junior designers. Successfully reduced
-                      design-to-dev handoff time by 40%.
-                    </p>
-                  </div>
-
-                  {/* Job 2 */}
-                  <div className="border-l-2 border-border pl-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-text-primary">
-                        UX Designer
-                      </h4>
-                      <span className="text-sm text-text-secondary">
-                        2019 — 2021
-                      </span>
-                    </div>
-                    <a
-                      href="#"
-                      className="text-accent hover:underline mb-3 inline-block"
-                    >
-                      CreativeAgency
-                    </a>
-                    <p className="text-text-secondary">
-                      Designed end-to-end user flows for major fintech clients.
-                      Collaborated closely with stakeholders to define product
-                      requirements.
-                    </p>
-                  </div>
-
-                  {/* Job 3 */}
-                  <div className="border-l-2 border-border pl-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-text-primary">
-                        Junior Designer
-                      </h4>
-                      <span className="text-sm text-text-secondary">
-                        2017 — 2019
-                      </span>
-                    </div>
-                    <a
-                      href="#"
-                      className="text-accent hover:underline mb-3 inline-block"
-                    >
-                      StartupInc
-                    </a>
-                    <p className="text-text-secondary">
-                      Assisted in UI component creation and marketing
-                      collateral. Gained expertise in agile methodologies and
-                      responsive web design.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Image & Stats */}
-            <div className="lg:sticky lg:top-32">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-8">
-                <Image
-                  src="/homepage.jpg"
-                  alt="Sarah"
-                  width={600}
-                  height={800}
-                  className="w-full h-auto"
-                />
-                <div className="absolute bottom-6 right-6 bg-bg-primary px-4 py-3 rounded-lg shadow-lg flex items-center gap-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <div>
-                    <p className="text-xs text-text-secondary">STATUS</p>
-                    <p className="text-sm font-semibold text-text-primary">
-                      Open to Work
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-surface border border-border rounded-xl p-6">
-                  <p className="text-4xl font-bold text-text-primary mb-2">
-                    5<sup className="text-2xl">+</sup>
-                  </p>
-                  <p className="text-text-secondary text-sm">
-                    Years of Experience
-                  </p>
-                </div>
-                <div className="bg-surface border border-border rounded-xl p-6">
-                  <p className="text-4xl font-bold text-text-primary mb-2">
-                    50<sup className="text-2xl">+</sup>
-                  </p>
-                  <p className="text-text-secondary text-sm">
-                    Projects Completed
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p>
+              AWS-certified Cloud Engineer with hands-on experience designing
+              and implementing secure, scalable, and resilient cloud
+              architectures. Skilled in deploying and managing infrastructure
+              using AWS services such as EC2, S3, RDS, VPC, IAM, and EKS,
+              combined with automation tools like Terraform and CloudFormation.
+            </p>
+            <p>
+              Experienced in developing and deploying containerized applications
+              using Docker and Kubernetes, and supporting continuous integration
+              and delivery through GitHub Actions and Jenkins. Strong background
+              in Python, Linux, and end-to-end infrastructure monitoring with
+              CloudWatch and related tools.
+            </p>
+            <p>
+              Capable of architecting and optimizing database solutions using
+              RDS and DynamoDB, while ensuring compliance, performance, and
+              operational excellence across hybrid and cloud-native
+              environments. Passionate about enabling efficiency, security, and
+              innovation through cloud technologies and collaborative
+              engineering practices.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
+      <section id="projects" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <span className="w-2 h-2 bg-accent rounded-full"></span>
             PROJECTS
           </div>
 
-          <h2 className="text-5xl font-bold text-text-primary mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-8 sm:mb-12">
             Featured Work
           </h2>
 
           {/* Category Tabs */}
-          <div className="flex gap-4 mb-12 border-b border-border" role="tablist">
-            {["Web Development", "App Development", "Cloud & DevOps"].map((category) => (
-              <button
-                key={category}
-                role="tab"
-                aria-selected={selectedCategory === category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 text-sm font-medium ${
-                  selectedCategory === category
-                    ? "text-accent border-b-2 border-accent"
-                    : "text-text-secondary hover:text-text-primary"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div
+            className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 border-b border-border overflow-x-auto"
+            role="tablist"
+          >
+            {["Web Development", "App Development", "Cloud & DevOps"].map(
+              (category) => (
+                <button
+                  key={category}
+                  role="tab"
+                  aria-selected={selectedCategory === category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium whitespace-nowrap ${
+                    selectedCategory === category
+                      ? "text-accent border-b-2 border-accent"
+                      : "text-text-secondary hover:text-text-primary"
+                  }`}
+                >
+                  {category}
+                </button>
+              ),
+            )}
           </div>
 
           {/* Projects Grid */}
@@ -272,7 +122,8 @@ export default function Home() {
                   E-Commerce Platform
                 </h3>
                 <p className="text-text-secondary text-sm mb-4">
-                  Full-stack marketplace with real-time inventory and payment processing
+                  Full-stack marketplace with real-time inventory and payment
+                  processing
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
@@ -296,7 +147,8 @@ export default function Home() {
                   SaaS Dashboard
                 </h3>
                 <p className="text-text-secondary text-sm mb-4">
-                  Analytics platform with real-time data visualization and reporting
+                  Analytics platform with real-time data visualization and
+                  reporting
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
@@ -338,6 +190,150 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Tech Stack Section */}
+      <section id="tech-stack" className="py-12 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="inline-flex items-center gap-2 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            <span className="w-2 h-2 bg-accent rounded-full"></span>
+            TECH STACK
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-8 sm:mb-12">
+            My Tech Universe
+          </h2>
+
+          {/* Tech Icons Grid */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-8 sm:gap-12">
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/react.png"
+                alt="React"
+                width={230}
+                height={219}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                React
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/typescript.png"
+                alt="TypeScript"
+                width={64}
+                height={64}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                TypeScript
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/next.png"
+                alt="Next.js"
+                width={64}
+                height={64}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Next.js
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/tailwind.png"
+                alt="Tailwind CSS"
+                width={382}
+                height={132}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Tailwind
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/aws.png"
+                alt="AWS"
+                width={275}
+                height={183}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                AWS
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/docker.png"
+                alt="Docker"
+                width={64}
+                height={64}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Docker
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/kubernetes.png"
+                alt="Kubernetes"
+                width={275}
+                height={183}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Kubernetes
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/git.png"
+                alt="Git"
+                width={64}
+                height={64}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Git
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/python.png"
+                alt="Python"
+                width={300}
+                height={168}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Python
+              </span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <Image
+                src="/terraform.png"
+                alt="Terraform"
+                width={64}
+                height={64}
+                className="h-16 w-auto hover:scale-110 transition-transform"
+              />
+              <span className="text-sm text-text-secondary font-medium">
+                Terraform
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
