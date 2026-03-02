@@ -49,6 +49,14 @@ export default function Navigation() {
             >
               Contact Me
             </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-block px-4 sm:px-6 py-2 border border-transparent bg-accent text-white text-sm font-medium rounded-lg hover:bg-accent/90 transition-colors"
+            >
+              Resume
+            </a>
             
             {/* Mobile Menu Button */}
             <button
@@ -86,6 +94,15 @@ export default function Navigation() {
               className="block mt-4 px-4 py-2 border border-text-primary text-text-primary text-sm font-medium rounded-lg text-center hover:bg-text-primary hover:text-bg-primary transition-colors"
             >
               Contact Me
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="block mt-2 px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg text-center hover:bg-accent/90 transition-colors"
+            >
+              Resume
             </a>
           </div>
         )}
