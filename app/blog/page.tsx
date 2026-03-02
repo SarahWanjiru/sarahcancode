@@ -137,7 +137,10 @@ export default function BlogPage() {
 
           {/* Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {posts.map((post) => (
+            {(selectedCategory === "All" 
+              ? posts 
+              : posts.filter(p => p.category.toLowerCase() === selectedCategory.toLowerCase())
+            ).map((post) => (
               <article
                 key={post.id}
                 className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow"
