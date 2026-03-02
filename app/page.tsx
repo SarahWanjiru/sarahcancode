@@ -42,61 +42,23 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
             {/* Left Content */}
             <div>
-              <div className="inline-flex items-center gap-2 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+              <div className="inline-flex items-center gap-3 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 <span className="w-2 h-2 bg-accent rounded-full"></span>
                 ABOUT ME
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-text-primary mb-6 sm:mb-8">
-                I craft <span className="text-accent">digital experiences</span>{" "}
-                that matter.
-              </h2>
-
-              <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
-                <p>
-                  I'm Sarah, a multidisciplinary product designer and developer
-                  based in the heart of San Francisco. My journey began in
-                  graphic design, but my curiosity for how things work led me
-                  into the world of code.
-                </p>
-                <p>
-                  Today, I sit at the intersection of design and engineering,
-                  bridging the gap between user needs and business goals. I
-                  believe that the best products are built with empathy,
-                  precision, and a deep understanding of the human experience.
-                </p>
-                <p>
-                  When I'm not pushing pixels or writing clean code, you can
-                  find me exploring the California coast, experimenting with
-                  analog photography, or brewing the perfect cup of coffee.
-                </p>
-              </div>
-
-              {/* Core Competencies */}
-              <div className="mt-8 sm:mt-12">
-                <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-4 sm:mb-6">
-                  Core Competencies
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    "Interaction Design",
-                    "Front-end Architecture",
-                    "Design Systems",
-                    "User Research",
-                    "Accessibility (a11y)",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2 bg-surface border border-border rounded-lg text-text-primary text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <p className="text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed mb-8">
+                Experienced AWS Cloud Practitioner and DevOps Engineer with a strong foundation in cloud computing,
+                infrastructure automation, and modern deployment practices. I have cultivated a deep understanding of AWS
+                services, including EC2, S3, RDS, and EKS, through rigorous training and hands-on implementation. My expertise
+                extends to designing, deploying, and optimizing scalable and secure cloud solutions, leveraging tools like
+                Terraform, Docker, and Kubernetes. Beyond training, I have applied advanced configurations in real-world
+                scenarios, focusing on automation, security, and performance optimization. With a commitment to solving
+                complex challenges, I am equipped to drive innovation and efficiency in cloud-based and DevOps environments.
+              </p>
 
               {/* Experience */}
               <div className="mt-12 sm:mt-16">
@@ -176,28 +138,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Content - Image & Stats */}
-            <div className="lg:sticky lg:top-32">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-6 sm:mb-8">
-                <Image
-                  src="/homepage.jpg"
-                  alt="Sarah"
-                  width={600}
-                  height={800}
-                  className="w-full h-auto"
-                />
-                <div className="absolute bottom-6 right-6 bg-bg-primary px-4 py-3 rounded-lg shadow-lg flex items-center gap-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <div>
-                    <p className="text-xs text-text-secondary">STATUS</p>
-                    <p className="text-sm font-semibold text-text-primary">
-                      Open to Work
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats */}
+            {/* Right Content - Stats */}
+            <div>
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-surface border border-border rounded-xl p-6">
                   <p className="text-4xl font-bold text-text-primary mb-2">
