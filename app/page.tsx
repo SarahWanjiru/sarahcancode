@@ -42,7 +42,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Content */}
             <div>
               <div className="inline-flex items-center gap-3 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
@@ -50,15 +50,23 @@ export default function Home() {
                 ABOUT ME
               </div>
 
-              <p className="text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed mb-8">
-                Experienced AWS Cloud Practitioner and DevOps Engineer with a strong foundation in cloud computing,
-                infrastructure automation, and modern deployment practices. I have cultivated a deep understanding of AWS
-                services, including EC2, S3, RDS, and EKS, through rigorous training and hands-on implementation. My expertise
-                extends to designing, deploying, and optimizing scalable and secure cloud solutions, leveraging tools like
-                Terraform, Docker, and Kubernetes. Beyond training, I have applied advanced configurations in real-world
-                scenarios, focusing on automation, security, and performance optimization. With a commitment to solving
-                complex challenges, I am equipped to drive innovation and efficiency in cloud-based and DevOps environments.
-              </p>
+              <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed mb-8">
+                <p>
+                  AWS-certified Cloud Engineer with hands-on experience designing and implementing secure, scalable, and
+                  resilient cloud architectures. Skilled in deploying and managing infrastructure using AWS services such as EC2,
+                  S3, RDS, VPC, IAM, and EKS, combined with automation tools like Terraform and CloudFormation.
+                </p>
+                <p>
+                  Experienced in developing and deploying containerized applications using Docker and Kubernetes, and supporting
+                  continuous integration and delivery through GitHub Actions and Jenkins. Strong background in Python, Linux, and
+                  end-to-end infrastructure monitoring with CloudWatch and related tools.
+                </p>
+                <p>
+                  Capable of architecting and optimizing database solutions using RDS and DynamoDB, while ensuring compliance,
+                  performance, and operational excellence across hybrid and cloud-native environments. Passionate about enabling
+                  efficiency, security, and innovation through cloud technologies and collaborative engineering practices.
+                </p>
+              </div>
 
               {/* Experience */}
               <div className="mt-12 sm:mt-16">
