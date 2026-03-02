@@ -42,33 +42,27 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-3 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-                <span className="w-2 h-2 bg-accent rounded-full"></span>
-                ABOUT ME
-              </div>
+          <div className="inline-flex items-center gap-3 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            <span className="w-2 h-2 bg-accent rounded-full"></span>
+            ABOUT ME
+          </div>
 
-              <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed mb-8">
-                <p>
-                  AWS-certified Cloud Engineer with hands-on experience designing and implementing secure, scalable, and
-                  resilient cloud architectures. Skilled in deploying and managing infrastructure using AWS services such as EC2,
-                  S3, RDS, VPC, IAM, and EKS, combined with automation tools like Terraform and CloudFormation.
-                </p>
-                <p>
-                  Experienced in developing and deploying containerized applications using Docker and Kubernetes, and supporting
-                  continuous integration and delivery through GitHub Actions and Jenkins. Strong background in Python, Linux, and
-                  end-to-end infrastructure monitoring with CloudWatch and related tools.
-                </p>
-                <p>
-                  Capable of architecting and optimizing database solutions using RDS and DynamoDB, while ensuring compliance,
-                  performance, and operational excellence across hybrid and cloud-native environments. Passionate about enabling
-                  efficiency, security, and innovation through cloud technologies and collaborative engineering practices.
-                </p>
-              </div>
-
-            </div>
+          <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p>
+              AWS-certified Cloud Engineer with hands-on experience designing and implementing secure, scalable, and
+              resilient cloud architectures. Skilled in deploying and managing infrastructure using AWS services such as EC2,
+              S3, RDS, VPC, IAM, and EKS, combined with automation tools like Terraform and CloudFormation.
+            </p>
+            <p>
+              Experienced in developing and deploying containerized applications using Docker and Kubernetes, and supporting
+              continuous integration and delivery through GitHub Actions and Jenkins. Strong background in Python, Linux, and
+              end-to-end infrastructure monitoring with CloudWatch and related tools.
+            </p>
+            <p>
+              Capable of architecting and optimizing database solutions using RDS and DynamoDB, while ensuring compliance,
+              performance, and operational excellence across hybrid and cloud-native environments. Passionate about enabling
+              efficiency, security, and innovation through cloud technologies and collaborative engineering practices.
+            </p>
           </div>
         </div>
       </section>
