@@ -8,12 +8,12 @@ export default function ContactSection() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      subject: formData.get('subject'),
-      message: formData.get('message'),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
     };
-    console.log('Form submitted:', data);
+    console.log("Form submitted:", data);
     // Add your submit logic here
   };
 
@@ -45,7 +45,9 @@ export default function ContactSection() {
                       <Linkedin className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-text-primary">LinkedIn</p>
+                      <p className="font-semibold text-text-primary">
+                        LinkedIn
+                      </p>
                       <p className="text-sm text-text-secondary">
                         Professional network & resume
                       </p>
@@ -85,7 +87,9 @@ export default function ContactSection() {
                       <Twitter className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-text-primary">Twitter / X</p>
+                      <p className="font-semibold text-text-primary">
+                        Twitter / X
+                      </p>
                       <p className="text-sm text-text-secondary">
                         Thoughts & updates
                       </p>

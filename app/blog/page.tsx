@@ -10,8 +10,8 @@ export default function BlogPage() {
   const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const email = formData.get('email');
-    console.log('Newsletter subscription:', email);
+    const email = formData.get("email");
+    console.log("Newsletter subscription:", email);
     // Add your subscription logic here
   };
 
@@ -22,7 +22,8 @@ export default function BlogPage() {
       id: 1,
       category: "ENGINEERING",
       title: "Scaling React Applications with Micro-frontends",
-      description: "Learn how to break down your monolithic React apps into manageable, independently deployable pieces.",
+      description:
+        "Learn how to break down your monolithic React apps into manageable, independently deployable pieces.",
       image: "/homepage.jpg",
       readTime: "12 min read",
       date: "Mar 12, 2024",
@@ -31,7 +32,8 @@ export default function BlogPage() {
       id: 2,
       category: "DESIGN",
       title: "Typography Rules for High-Density Screens",
-      description: "How to choose the right font weight and scale for mobile devices and high-resolution displays.",
+      description:
+        "How to choose the right font weight and scale for mobile devices and high-resolution displays.",
       image: "/homepage.jpg",
       readTime: "5 min read",
       date: "Feb 28, 2024",
@@ -40,7 +42,8 @@ export default function BlogPage() {
       id: 3,
       category: "PERSONAL",
       title: "Maintaining Creativity in a Burnout Culture",
-      description: "My personal journey through creative blocks and the strategies I used to find my spark again.",
+      description:
+        "My personal journey through creative blocks and the strategies I used to find my spark again.",
       image: "/homepage.jpg",
       readTime: "10 min read",
       date: "Feb 14, 2024",
@@ -49,7 +52,8 @@ export default function BlogPage() {
       id: 4,
       category: "ENGINEERING",
       title: "The Shift to Serverless in Corporate Tech",
-      description: "Analyzing why major enterprises are finally moving their legacy systems to serverless architectures.",
+      description:
+        "Analyzing why major enterprises are finally moving their legacy systems to serverless architectures.",
       image: "/homepage.jpg",
       readTime: "15 min read",
       date: "Jan 30, 2024",
@@ -58,7 +62,8 @@ export default function BlogPage() {
       id: 5,
       category: "DESIGN",
       title: "Color Psychology in SaaS Branding",
-      description: "How different hues impact user trust and conversion rates in modern software platforms.",
+      description:
+        "How different hues impact user trust and conversion rates in modern software platforms.",
       image: "/homepage.jpg",
       readTime: "7 min read",
       date: "Jan 10, 2024",
@@ -67,7 +72,8 @@ export default function BlogPage() {
       id: 6,
       category: "PERSONAL",
       title: "Why I Started Writing Every Single Day",
-      description: "Reflecting on 365 days of consistent journaling and how it changed my perspective on productivity.",
+      description:
+        "Reflecting on 365 days of consistent journaling and how it changed my perspective on productivity.",
       image: "/homepage.jpg",
       readTime: "4 min read",
       date: "Dec 28, 2023",
@@ -96,7 +102,9 @@ export default function BlogPage() {
                 The Future of Minimalist Design in 2024
               </h1>
               <p className="text-text-secondary mb-6">
-                Exploring how simplicity continues to dominate the digital landscape through thoughtful user experiences and intentional whitespace.
+                Exploring how simplicity continues to dominate the digital
+                landscape through thoughtful user experiences and intentional
+                whitespace.
               </p>
               <div className="flex items-center gap-4 text-sm text-text-secondary mb-6">
                 <span>Jan 15, 2024</span>
@@ -145,9 +153,12 @@ export default function BlogPage() {
 
           {/* Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {(selectedCategory === "All" 
-              ? posts 
-              : posts.filter(p => p.category.toLowerCase() === selectedCategory.toLowerCase())
+            {(selectedCategory === "All"
+              ? posts
+              : posts.filter(
+                  (p) =>
+                    p.category.toLowerCase() === selectedCategory.toLowerCase(),
+                )
             ).map((post) => (
               <article
                 key={post.id}
@@ -212,9 +223,13 @@ export default function BlogPage() {
             Stay in the loop
           </h2>
           <p className="text-text-secondary mb-8">
-            Subscribe to get my latest posts delivered directly to your inbox. No spam, just deep dives and insights.
+            Subscribe to get my latest posts delivered directly to your inbox.
+            No spam, just deep dives and insights.
           </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form
+            onSubmit={handleSubscribe}
+            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+          >
             <input
               type="email"
               name="email"

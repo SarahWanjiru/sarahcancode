@@ -31,4 +31,3 @@ updates:
           - "eslint"
           - "eslint-plugin-*"
           - "@eslint/*"
-    

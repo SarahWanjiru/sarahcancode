@@ -9,10 +9,13 @@ export default function Footer() {
               <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white text-sm font-bold">
                 SC
               </div>
-              <span className="text-lg font-bold text-text-primary">Sarah Can Code</span>
+              <span className="text-lg font-bold text-text-primary">
+                Sarah Can Code
+              </span>
             </div>
             <p className="text-text-secondary text-sm">
-              Crafting digital experiences that merge design, technology, and strategy.
+              Crafting digital experiences that merge design, technology, and
+              strategy.
             </p>
           </div>
 
@@ -21,22 +24,34 @@ export default function Footer() {
             <h3 className="font-bold text-text-primary mb-4">Explore</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="/"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="/#about" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="/#about"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   About
                 </a>
               </li>
               <li>
-                <a href="/#projects" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="/#projects"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Portfolio
                 </a>
               </li>
               <li>
-                <a href="/blog" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="/blog"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Blog
                 </a>
               </li>
@@ -48,22 +63,34 @@ export default function Footer() {
             <h3 className="font-bold text-text-primary mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="#"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Style Guide
                 </a>
               </li>
               <li>
-                <a href="#" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="#"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Changelog
                 </a>
               </li>
               <li>
-                <a href="#" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="#"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a
+                  href="#"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
                   Terms of Service
                 </a>
               </li>
@@ -78,7 +105,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            <span className="text-text-secondary text-sm">All systems operational</span>
+            <span className="text-text-secondary text-sm">
+              All systems operational
+            </span>
           </div>
         </div>
       </div>
