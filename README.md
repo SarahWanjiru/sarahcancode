@@ -8,17 +8,19 @@ This is a professional portfolio website designed to demonstrate:
 
 - **Full-stack development** capabilities with modern React and Next.js
 - **Cloud-native thinking** through scalable architecture patterns
-- **DevOps mindset** with clean code structure and deployment readiness
+- **DevOps mindset** with CI/CD pipeline and automated workflows
 - **UI/UX design** skills with responsive layouts and dark mode support
 
 ## Features
 
-- **Modern Tech Stack**: Next.js 16 App Router, React 19, TypeScript
+- **Modern Tech Stack**: Next.js 16 App Router, React 19, TypeScript 5
 - **Custom Design System**: Tailwind CSS 4 with CSS variables for theming
-- **Dark Mode**: Context-based theme switching with persistent preferences
-- **Fully Responsive**: Mobile-first design approach
-- ⚡ **Performance Optimized**: Next.js Image optimization, static generation
-- **Multi-page Navigation**: Home, About, Projects, Tech Stack, Blog, Testimonials, Contact
+- **Dark Mode**: Context-based theme switching with localStorage persistence
+- **Fully Responsive**: Mobile-first design with hamburger menu
+- **Performance Optimized**: Next.js Image optimization, lazy loading
+- **CI/CD Pipeline**: GitHub Actions with automated builds and linting
+- **Code Quality**: ESLint, Prettier, TypeScript strict mode
+- **Dependency Management**: Dependabot with grouped updates
 
 ## Tech Stack
 
@@ -34,15 +36,21 @@ This is a professional portfolio website designed to demonstrate:
 sarahcancode/
 ├── app/
 │   ├── components/       # Reusable UI components
+│   │   ├── Navigation.tsx
+│   │   ├── ThemeToggle.tsx
+│   │   ├── ContactSection.tsx
+│   │   └── Footer.tsx
 │   ├── context/          # React Context providers
-│   ├── about/            # About page
-│   ├── blog/             # Blog page
-│   ├── contact/          # Contact page
-│   ├── projects/         # Projects showcase
-│   ├── tech-stack/       # Technology stack page
-│   ├── testimonials/     # Testimonials page
+│   │   └── ThemeContext.tsx
+│   ├── blog/             # Blog listing page
+│   │   └── page.tsx
 │   ├── layout.tsx        # Root layout with navigation
-│   └── page.tsx          # Homepage
+│   ├── page.tsx          # Homepage (Hero, About, Projects, Tech Stack, Contact)
+│   └── globals.css       # Global styles with CSS variables
+├── .github/
+│   ├── workflows/        # CI/CD workflows
+│   ├── dependabot.yml    # Dependency updates config
+│   └── pull_request_template.md
 ├── public/               # Static assets
 └── tailwind.config.js    # Tailwind configuration
 ```
@@ -89,13 +97,10 @@ pnpm start
 The project uses a custom design system with CSS variables for consistent theming:
 
 - **Colors**: Semantic color tokens (bg-primary, text-primary, accent, etc.)
-- **Typography**: System font stack optimized for readability
+- **Typography**: Geist Sans and Geist Mono fonts
 - **Spacing**: Tailwind's default spacing scale
-- **Dark Mode**: Class-based dark mode with ThemeContext
-
-## Development Roadmap
-
-See [LEARNING_ROADMAP.md](./LEARNING_ROADMAP.md) for the complete development plan and learning objectives.
+- **Dark Mode**: Class-based dark mode with ThemeContext and localStorage persistence
+- **Icons**: Lucide React for consistent iconography
 
 ## License
 
