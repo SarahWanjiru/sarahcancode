@@ -44,7 +44,7 @@ export default function Navigation() {
           <div className="flex items-center gap-2 sm:gap-4">
             <ThemeToggle />
             <a
-              href="#contact"
+              href="/#contact"
               className="hidden sm:inline-block px-4 sm:px-6 py-2 border border-text-primary text-text-primary text-sm font-medium rounded-lg hover:bg-text-primary hover:text-bg-primary transition-colors"
             >
               Contact Me
@@ -89,7 +89,7 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setIsMenuOpen(false)}
               className="block mt-4 px-4 py-2 border border-text-primary text-text-primary text-sm font-medium rounded-lg text-center hover:bg-text-primary hover:text-bg-primary transition-colors"
             >
