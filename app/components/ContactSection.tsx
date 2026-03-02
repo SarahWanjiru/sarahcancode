@@ -1,8 +1,22 @@
 "use client";
 
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from "lucide-react";
+import { FormEvent } from "react";
 
 export default function ContactSection() {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+    console.log('Form submitted:', data);
+    // Add your submit logic here
+  };
+
   return (
     <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
@@ -109,7 +123,7 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold text-text-primary mb-6">
               Send a Message
             </h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -121,6 +135,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
                   />
@@ -135,6 +150,7 @@ export default function ContactSection() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="hello@example.com"
                     className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
                   />
@@ -151,6 +167,7 @@ export default function ContactSection() {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   placeholder="Project Inquiry"
                   className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
                 />
@@ -165,6 +182,7 @@ export default function ContactSection() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   placeholder="Tell me a bit about your project..."
                   className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"
