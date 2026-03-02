@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import Image from "next/image";
 import Footer from "../components/Footer";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email');
+    console.log('Newsletter subscription:', email);
+    // Add your subscription logic here
+  };
 
   const categories = ["All", "Design", "Engineering", "Personal"];
 
@@ -206,10 +214,12 @@ export default function BlogPage() {
           <p className="text-text-secondary mb-8">
             Subscribe to get my latest posts delivered directly to your inbox. No spam, just deep dives and insights.
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
+              required
               className="flex-1 px-4 py-3 bg-surface border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
             />
             <button
