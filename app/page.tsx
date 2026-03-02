@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-bg-primary px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-12 sm:pt-32 sm:pb-20">
+      <section id="home" className="pt-24 pb-12 sm:pt-32 sm:pb-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
             <div>
