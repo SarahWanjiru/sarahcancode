@@ -21,22 +21,22 @@ export default function Footer() {
             <h3 className="font-bold text-text-primary mb-4">Explore</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a href="/" className="text-text-secondary hover:text-accent text-sm transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a href="/#about" className="text-text-secondary hover:text-accent text-sm transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#projects" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a href="/#projects" className="text-text-secondary hover:text-accent text-sm transition-colors">
                   Portfolio
                 </a>
               </li>
               <li>
-                <a href="#tech-stack" className="text-text-secondary hover:text-accent text-sm transition-colors">
+                <a href="/blog" className="text-text-secondary hover:text-accent text-sm transition-colors">
                   Blog
                 </a>
               </li>
