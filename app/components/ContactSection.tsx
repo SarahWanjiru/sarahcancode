@@ -37,7 +37,7 @@ export default function ContactSection() {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/sarahndungu"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
@@ -59,7 +59,7 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://github.com/SarahWanjiru"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
@@ -79,7 +79,7 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://x.com/shirawbedan"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
