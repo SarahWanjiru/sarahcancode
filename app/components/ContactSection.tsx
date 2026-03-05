@@ -193,6 +193,22 @@ export default function ContactSection() {
                 ></textarea>
               </div>
 
+               <div>
+                <label
+                  htmlFor="your-contact"
+                  className="block text-sm font-medium text-text-primary mb-2"
+                >
+                  YOUR CONTACT INFO
+                </label>
+                <textarea
+                  id="your-contact"
+                  name="your-contact"
+                  rows={5}
+                  placeholder="How can I reach you? (email, phone, etc.)"
+                  className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+                ></textarea>
+              </div>
+
               <button
                 type="submit"
                 className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
