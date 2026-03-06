@@ -12,6 +12,7 @@ export default function ContactSection() {
       email: formData.get("email"),
       subject: formData.get("subject"),
       message: formData.get("message"),
+      contact: formData.get("your-contact")
     };
     console.log("Form submitted:", data);
     // Add your submit logic here
@@ -37,7 +38,7 @@ export default function ContactSection() {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/sarahndungu"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
@@ -59,7 +60,7 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://github.com/SarahWanjiru"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
@@ -79,7 +80,7 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://x.com/shirawbedan"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
@@ -189,6 +190,22 @@ export default function ContactSection() {
                   name="message"
                   rows={5}
                   placeholder="Tell me a bit about your project..."
+                  className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+                ></textarea>
+              </div>
+
+               <div>
+                <label
+                  htmlFor="your-contact"
+                  className="block text-sm font-medium text-text-primary mb-2"
+                >
+                  PREFERRED CONTACT METHOD
+                </label>
+                <textarea
+                  id="your-contact"
+                  name="your-contact"
+                  rows={2}
+                  placeholder="Phone number, best time to reach you, or preferred method..."
                   className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                 ></textarea>
               </div>
