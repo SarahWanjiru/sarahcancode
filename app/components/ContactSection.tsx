@@ -12,6 +12,7 @@ export default function ContactSection() {
       email: formData.get("email"),
       subject: formData.get("subject"),
       message: formData.get("message"),
+      contact: formData.get("your-contact")
     };
     console.log("Form submitted:", data);
     // Add your submit logic here
