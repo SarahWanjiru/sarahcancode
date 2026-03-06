@@ -199,13 +199,13 @@ export default function ContactSection() {
                   htmlFor="your-contact"
                   className="block text-sm font-medium text-text-primary mb-2"
                 >
-                  YOUR CONTACT INFO
+                  PREFERRED CONTACT METHOD
                 </label>
                 <textarea
                   id="your-contact"
                   name="your-contact"
-                  rows={5}
-                  placeholder="How can I reach you? (email, phone, etc.)"
+                  rows={2}
+                  placeholder="Phone number, best time to reach you, or preferred method..."
                   className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                 ></textarea>
               </div>
