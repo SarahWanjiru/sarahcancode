@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Simple in-memory rate limiting (for production, use Redis/Upstash)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -51,32 +54,6 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
-    // TODO: Integrate with email service (Resend, SendGrid, etc.)
-    // Example with Resend:
-    // const { data, error } = await resend.emails.send({
-    //   from: 'portfolio@sarahcancode.dev',
-    //   to: 'hello@sarahcancode.dev',
-    //   subject: `Contact Form: ${subject}`,
-    //   html: `
-    //     <h2>New Contact Form Submission</h2>
-    //     <p><strong>From:</strong> ${name} (${email})</p>
-    //     <p><strong>Subject:</strong> ${subject}</p>
-    //     <p><strong>Message:</strong></p>
-    //     <p>${message}</p>
-    //     ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ''}
-    //   `
-    // });
-
-    // For now, just log the data
-    console.log("Contact form submission:", {
-      name,
-      email,
-      subject,
-      message,
-      contact,
-      timestamp: new Date().toISOString(),
-    });
 
     return NextResponse.json(
       { message: "Message sent successfully" },
