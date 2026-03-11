@@ -1,21 +1,96 @@
 "use client";
 
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from "lucide-react";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
 
 export default function ContactSection() {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const validateForm = (formData: FormData): FormErrors => {
+    const errors: FormErrors = {};
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
+
+    if (!name || name.trim().length < 2) {
+      errors.name = "Name must be at least 2 characters";
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = "Please enter a valid email address";
+    }
+
+    if (!subject || subject.trim().length < 3) {
+      errors.subject = "Subject must be at least 3 characters";
+    }
+
+    if (!message || message.trim().length < 10) {
+      errors.message = "Message must be at least 10 characters";
+    }
+
+    return errors;
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({});
+    setSubmitStatus("idle");
+
     const formData = new FormData(e.currentTarget);
+    
+    // Honeypot spam check - if "website" field is filled, it's a bot
+    if (formData.get("website")) {
+      console.log("Spam detected via honeypot");
+      setSubmitStatus("success"); // Fake success to fool bots
+      e.currentTarget.reset();
+      return;
+    }
+    
+    const formErrors = validateForm(formData);
+
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       subject: formData.get("subject"),
       message: formData.get("message"),
-      contact: formData.get("your-contact")
+      contact: formData.get("your-contact"),
+      website: formData.get("website") // honeypot field
     };
-    console.log("Form submitted:", data);
-    // Add your submit logic here
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      
+      if (!response.ok) throw new Error('Failed to send message');
+      
+      setSubmitStatus("success");
+      e.currentTarget.reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,7 +203,31 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold text-text-primary mb-6">
               Send a Message
             </h3>
+            
+            {submitStatus === "success" && (
+              <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
+                ✓ Message sent successfully! I&apos;ll get back to you soon.
+              </div>
+            )}
+            
+            {submitStatus === "error" && (
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
+                ✗ Failed to send message. Please try again or email me directly.
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from users, catches bots */}
+              {/* Using enticing name "website" to attract bots */}
+              <input
+                type="text"
+                name="website"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+              
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -142,8 +241,13 @@ export default function ContactSection() {
                     id="name"
                     name="name"
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
+                    className={`w-full px-4 py-3 bg-bg-primary border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent ${
+                      errors.name ? "border-red-500" : "border-border"
+                    }`}
                   />
+                  {errors.name && (
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -157,8 +261,13 @@ export default function ContactSection() {
                     id="email"
                     name="email"
                     placeholder="hello@example.com"
-                    className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
+                    className={`w-full px-4 py-3 bg-bg-primary border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent ${
+                      errors.email ? "border-red-500" : "border-border"
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+                  )}
                 </div>
               </div>
 
@@ -174,8 +283,13 @@ export default function ContactSection() {
                   id="subject"
                   name="subject"
                   placeholder="Project Inquiry"
-                  className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
+                  className={`w-full px-4 py-3 bg-bg-primary border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent ${
+                    errors.subject ? "border-red-500" : "border-border"
+                  }`}
                 />
+                {errors.subject && (
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.subject}</p>
+                )}
               </div>
 
               <div>
@@ -190,8 +304,13 @@ export default function ContactSection() {
                   name="message"
                   rows={5}
                   placeholder="Tell me a bit about your project..."
-                  className="w-full px-4 py-3 bg-bg-primary border border-border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+                  className={`w-full px-4 py-3 bg-bg-primary border rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent resize-none ${
+                    errors.message ? "border-red-500" : "border-border"
+                  }`}
                 ></textarea>
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>
+                )}
               </div>
 
                <div>
@@ -212,10 +331,20 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
-                <span>→</span>
+                {isSubmitting ? (
+                  <>
+                    <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <span>→</span>
+                  </>
+                )}
               </button>
             </form>
           </div>
