@@ -55,6 +55,32 @@ export async function POST(request: Request) {
       );
     }
 
+    // Send email via Resend
+    const { data, error } = await resend.emails.send({
+      from: 'onboarding@resend.dev', // Using Resend's test domain - change to 'portfolio@sarahcancode.dev' after domain verification
+      to: 'hello@sarahcancode.dev',
+      subject: `Contact Form: ${subject}`,
+      replyTo: email,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>From:</strong> ${name} (${email})</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+        ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ''}
+      `
+    });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { error: "Failed to send message" },
+        { status: 500 }
+      );
+    }
+
+    console.log("Email sent successfully:", data);
+
     return NextResponse.json(
       { message: "Message sent successfully" },
       { status: 200 }
