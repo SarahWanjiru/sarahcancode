@@ -35,6 +35,8 @@ This is a professional portfolio website designed to demonstrate:
 ```
 sarahcancode/
 ├── app/
+│   ├── api/
+│   │   └── contact/      # Contact form API endpoint
 │   ├── components/       # Reusable UI components
 │   │   ├── Navigation.tsx
 │   │   ├── ThemeToggle.tsx
@@ -47,6 +49,12 @@ sarahcancode/
 │   ├── layout.tsx        # Root layout with navigation
 │   ├── page.tsx          # Homepage (Hero, About, Projects, Tech Stack, Contact)
 │   └── globals.css       # Global styles with CSS variables
+├── docs/                 # Project documentation
+│   ├── README.md         # Documentation index
+│   ├── contact-section-complete.md
+│   ├── email-integration.md
+│   ├── learning-roadmap.md
+│   └── spam-protection.md
 ├── .github/
 │   ├── workflows/        # CI/CD workflows
 │   ├── dependabot.yml    # Dependency updates config
@@ -101,6 +109,17 @@ The project uses a custom design system with CSS variables for consistent themin
 - **Spacing**: Tailwind's default spacing scale
 - **Dark Mode**: Class-based dark mode with ThemeContext and localStorage persistence
 - **Icons**: Lucide React for consistent iconography
+
+## Documentation
+
+Detailed documentation is available in the [`docs/`](./docs) directory:
+
+- **[Contact Section](./docs/contact-section-complete.md)** - Contact form implementation and features
+- **[Email Integration](./docs/email-integration.md)** - Setting up email services
+- **[Spam Protection](./docs/spam-protection.md)** - Spam prevention strategies
+- **[Learning Roadmap](./docs/learning-roadmap.md)** - 35-day learning path
+
+See [`docs/README.md`](./docs/README.md) for the complete documentation index.
 
 ## License
 
