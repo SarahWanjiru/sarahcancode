@@ -128,9 +128,6 @@ export default function ContactSection() {
                       </p>
                     </div>
                   </div>
-                  <span className="text-text-secondary group-hover:text-accent transition-colors">
-                    →
-                  </span>
                 </a>
 
                 <a
@@ -148,9 +145,7 @@ export default function ContactSection() {
                       </p>
                     </div>
                   </div>
-                  <span className="text-text-secondary group-hover:text-accent transition-colors">
-                    →
-                  </span>
+                  
                 </a>
 
                 <a
@@ -170,9 +165,7 @@ export default function ContactSection() {
                       </p>
                     </div>
                   </div>
-                  <span className="text-text-secondary group-hover:text-accent transition-colors">
-                    →
-                  </span>
+                
                 </a>
               </div>
             </div>
@@ -192,10 +185,9 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-semibold text-text-primary">Email</p>
-                      <p className="text-sm text-text-secondary">hello@sarahcancode.dev</p>
+                      <p className="text-sm text-text-secondary">sarahlearn84@gmail.com</p>
                     </div>
                   </div>
-                  <span className="text-text-secondary group-hover:text-accent transition-colors">→</span>
                 </a>
 
                 <a
@@ -215,12 +207,18 @@ export default function ContactSection() {
                       <p className="text-sm text-text-secondary">+254 720 171 697</p>
                     </div>
                   </div>
-                  <span className="text-text-secondary group-hover:text-accent transition-colors">→</span>
                 </a>
 
-                <div className="flex items-center gap-4 p-4 text-text-secondary">
-                  <MapPin className="w-5 h-5 shrink-0" />
-                  <span>Nairobi, Kenya</span>
+                <div className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-text-secondary/20 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-text-secondary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-text-primary">Location</p>
+                      <p className="text-sm text-text-secondary">Nairobi, Kenya</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
