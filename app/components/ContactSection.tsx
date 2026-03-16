@@ -184,7 +184,7 @@ export default function ContactSection() {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:hello@sarahcancode.dev"
+                  href="mailto:sarahlearn84@gmail.com"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
                 >
                   <div className="flex items-center gap-4">
