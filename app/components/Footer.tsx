@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-bg-primary">
+    <footer className="bg-bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand Section */}
@@ -14,8 +14,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-text-secondary text-sm">
-              Crafting digital experiences that merge design, technology, and
-              strategy.
+              Engineering Reliable Systems From Interface to Infrastructure
             </p>
           </div>
 
