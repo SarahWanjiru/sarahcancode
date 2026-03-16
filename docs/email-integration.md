@@ -198,7 +198,7 @@ Test the following:
 - Add `.env.local` to `.gitignore` (already done)
 - Use environment variables for all API keys
 - Validate and sanitize all inputs (already done)
-- Consider adding rate limiting for production
+- Rate limiting is enforced: max 3 submissions per minute per IP (see `app/api/contact/route.ts` to review or adjust the limiter)
 
 ---
 
