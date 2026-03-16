@@ -3,6 +3,10 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+function escapeHtml(str: string): string {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
+}
+
 // Simple in-memory rate limiting (for production, use Redis/Upstash)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
@@ -67,17 +71,17 @@ export async function POST(request: Request) {
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Using Resend's test domain - change to 'portfolio@sarahcancode.dev' after domain verification
+      from: 'onboarding@resend.dev',
       to: 'sarahlearn84@gmail.com',
-      subject: `Contact Form: ${subject}`,
+      subject: `Contact Form: ${escapeHtml(subject)}`,
       replyTo: email,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${name} (${email})</p>
-        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>From:</strong> ${escapeHtml(name)} (${escapeHtml(email)})</p>
+        <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
-        ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ''}
+        <p>${escapeHtml(message)}</p>
+        ${contact ? `<p><strong>Preferred Contact:</strong> ${escapeHtml(contact)}</p>` : ''}
       `
     });
 
