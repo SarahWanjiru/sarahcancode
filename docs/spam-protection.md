@@ -200,7 +200,7 @@ if (!success) {
 - IP blocking for repeat offenders
 - Content filtering (check for spam keywords)
 
-**Good for:** High traffic sites, business sites
+**Good for:** High-traffic sites, business sites
 
 ---
 
