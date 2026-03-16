@@ -41,10 +41,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="/#tech-stack"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
+                  Tech Stack
+                </a>
+              </li>
+              <li>
+                <a
                   href="/#projects"
                   className="text-text-secondary hover:text-accent text-sm transition-colors"
                 >
-                  Portfolio
+                  Projects
                 </a>
               </li>
               <li>
@@ -67,22 +75,6 @@ export default function Footer() {
                   href="#"
                   className="text-text-secondary hover:text-accent text-sm transition-colors"
                 >
-                  Style Guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-text-secondary hover:text-accent text-sm transition-colors"
-                >
-                  Changelog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-text-secondary hover:text-accent text-sm transition-colors"
-                >
                   Privacy Policy
                 </a>
               </li>
@@ -99,16 +91,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-border flex flex-col  justify-between items-center gap-4">
           <p className="text-text-secondary text-sm">
             © {new Date().getFullYear()} Sarah Can Code. All rights reserved.
           </p>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            <span className="text-text-secondary text-sm">
-              All systems operational
-            </span>
-          </div>
         </div>
       </div>
     </footer>
