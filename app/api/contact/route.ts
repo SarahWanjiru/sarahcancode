@@ -58,6 +58,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email format" },
+        { status: 400 }
+      );
+    }
+
     // Send email via Resend
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev', // Using Resend's test domain - change to 'portfolio@sarahcancode.dev' after domain verification
