@@ -9,8 +9,8 @@ export default function Footer() {
               <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white text-sm font-bold">
                 SC
               </div>
-              <span className="text-lg font-bold text-text-primary">
-                Sarah Can Code
+              <span className="text-2xl font-bold text-text-primary">
+                SarahCanCode
               </span>
             </div>
             <p className="text-text-secondary text-sm">
@@ -92,7 +92,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col  justify-between items-center gap-4">
           <p className="text-text-secondary text-sm">
-            © {new Date().getFullYear()} Sarah Can Code. All rights reserved.
+            © {new Date().getFullYear()} SarahCanCode. All rights reserved.
           </p>
         </div>
       </div>
