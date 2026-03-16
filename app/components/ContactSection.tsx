@@ -238,13 +238,13 @@ export default function ContactSection() {
             </h3>
             
             {submitStatus === "success" && (
-              <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
+              <div role="status" aria-live="polite" aria-atomic="true" className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
                 ✓ Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
             
             {submitStatus === "error" && (
-              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
+              <div role="alert" aria-live="assertive" aria-atomic="true" className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
                 ✗ {apiError}
               </div>
             )}
