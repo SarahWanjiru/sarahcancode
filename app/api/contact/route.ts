@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     // Send email via Resend
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev', // Using Resend's test domain - change to 'portfolio@sarahcancode.dev' after domain verification
-      to: 'hello@sarahcancode.dev',
+      to: 'sarahlearn84@gmail.com',
       subject: `Contact Form: ${subject}`,
       replyTo: email,
       html: `

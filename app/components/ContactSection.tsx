@@ -46,13 +46,12 @@ export default function ContactSection() {
     setErrors({});
     setSubmitStatus("idle");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
-    // Honeypot spam check - if "website" field is filled, it's a bot
     if (formData.get("website")) {
-      console.log("Spam detected via honeypot");
-      setSubmitStatus("success"); // Fake success to fool bots
-      e.currentTarget.reset();
+      setSubmitStatus("success");
+      form.reset();
       return;
     }
     
@@ -84,7 +83,7 @@ export default function ContactSection() {
       if (!response.ok) throw new Error('Failed to send message');
       
       setSubmitStatus("success");
-      e.currentTarget.reset();
+      form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
