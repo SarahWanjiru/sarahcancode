@@ -14,6 +14,7 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [apiError, setApiError] = useState<string>("");
 
   const validateForm = (formData: FormData): FormErrors => {
     const errors: FormErrors = {};
@@ -45,6 +46,7 @@ export default function ContactSection() {
     e.preventDefault();
     setErrors({});
     setSubmitStatus("idle");
+    setApiError("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -80,12 +82,18 @@ export default function ContactSection() {
         body: JSON.stringify(data)
       });
       
-      if (!response.ok) throw new Error('Failed to send message');
-      
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        setApiError(body.error || "Failed to send message. Please try again or email me directly.");
+        setSubmitStatus("error");
+        return;
+      }
+
       setSubmitStatus("success");
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
+      setApiError("Failed to send message. Please try again or email me directly.");
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -237,7 +245,7 @@ export default function ContactSection() {
             
             {submitStatus === "error" && (
               <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
-                ✗ Failed to send message. Please try again or email me directly.
+                ✗ {apiError}
               </div>
             )}
             
