@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col  justify-between items-center gap-4">
+        <div className="pt-8 flex flex-col  justify-between items-center gap-4">
           <p className="text-text-secondary text-sm">
             © {new Date().getFullYear()} Sarah Can Code. All rights reserved.
           </p>
