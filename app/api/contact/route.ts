@@ -8,6 +8,9 @@ const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
+  for (const [key, val] of rateLimitMap) {
+    if (val.resetTime <= now) rateLimitMap.delete(key);
+  }
   const limit = rateLimitMap.get(ip);
 
   if (!limit || now > limit.resetTime) {
