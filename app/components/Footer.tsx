@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-bg-primary">
+    <footer className="bg-bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand Section */}
@@ -9,13 +9,12 @@ export default function Footer() {
               <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white text-sm font-bold">
                 SC
               </div>
-              <span className="text-lg font-bold text-text-primary">
-                Sarah Can Code
+              <span className="text-2xl font-bold text-text-primary">
+                SarahCanCode
               </span>
             </div>
             <p className="text-text-secondary text-sm">
-              Crafting digital experiences that merge design, technology, and
-              strategy.
+              Engineering Reliable Systems From Interface to Infrastructure
             </p>
           </div>
 
@@ -41,10 +40,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="/#tech-stack"
+                  className="text-text-secondary hover:text-accent text-sm transition-colors"
+                >
+                  Tech Stack
+                </a>
+              </li>
+              <li>
+                <a
                   href="/#projects"
                   className="text-text-secondary hover:text-accent text-sm transition-colors"
                 >
-                  Portfolio
+                  Projects
                 </a>
               </li>
               <li>
@@ -67,22 +74,6 @@ export default function Footer() {
                   href="#"
                   className="text-text-secondary hover:text-accent text-sm transition-colors"
                 >
-                  Style Guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-text-secondary hover:text-accent text-sm transition-colors"
-                >
-                  Changelog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-text-secondary hover:text-accent text-sm transition-colors"
-                >
                   Privacy Policy
                 </a>
               </li>
@@ -99,16 +90,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 flex flex-col  justify-between items-center gap-4">
           <p className="text-text-secondary text-sm">
-            © {new Date().getFullYear()} Sarah Can Code. All rights reserved.
+            © {new Date().getFullYear()} SarahCanCode. All rights reserved.
           </p>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            <span className="text-text-secondary text-sm">
-              All systems operational
-            </span>
-          </div>
         </div>
       </div>
     </footer>
