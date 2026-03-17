@@ -25,7 +25,10 @@ function estimateReadTime(content: string): string {
 }
 
 function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-US", {
+  if (!dateStr) return "Unknown date";
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) return "Unknown date";
+  return date.toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
