@@ -63,7 +63,7 @@ export default async function BlogPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-text-primary mb-4">Stay in the loop</h2>
           <p className="text-text-secondary mb-8">
-            Follow me on Medium to get my latest posts delivered directly to your feed.
+            Follow me on Medium to get my latest posts.
           </p>
           <a
             href="https://medium.com/@sarahndungu815"
