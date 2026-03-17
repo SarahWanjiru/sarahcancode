@@ -52,8 +52,8 @@ export async function getMediumPosts(): Promise<MediumPost[]> {
     if (data.status !== "ok") return [];
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return data.items.map((item: any, index: number) => ({
-      id: String(index),
+    return data.items.map((item: any) => ({
+      id: String(item.guid || item.link || item.title),
       title: item.title,
       description: extractDescription(item.content || item.description || ""),
       link: item.link,
