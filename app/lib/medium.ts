@@ -35,6 +35,10 @@ function formatDate(dateStr: string): string {
   });
 }
 
+/**
+ * Fetches posts from Medium via the rss2json.com public API.
+ */
+
 export async function getMediumPosts(): Promise<MediumPost[]> {
   try {
     const res = await fetch(
