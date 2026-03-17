@@ -47,6 +47,7 @@ export default function Footer() {
               href="https://github.com/SarahWanjiru"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub — Sarah Wanjiru"
               className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-text-secondary hover:text-accent hover:border-accent transition-colors"
             >
               <Github className="w-4 h-4" />
@@ -55,6 +56,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/sarahndungu"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn — Sarah Ndungu"
               className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-text-secondary hover:text-accent hover:border-accent transition-colors"
             >
               <Linkedin className="w-4 h-4" />
@@ -63,6 +65,7 @@ export default function Footer() {
               href="https://x.com/shirawbedan"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="X/Twitter — shirawbedan"
               className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-text-secondary hover:text-accent hover:border-accent transition-colors"
             >
               <Twitter className="w-4 h-4" />
@@ -72,7 +75,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-text-secondary text-sm">
-          <p>© {new Date().getFullYear()} Sarah Can Code. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SarahCanCode. All rights reserved.</p>
         </div>
       </div>
     </footer>
