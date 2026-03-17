@@ -51,26 +51,13 @@ export default function Home() {
 
           <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
             <p>
-              AWS-certified Cloud Engineer with hands-on experience designing
-              and implementing secure, scalable, and resilient cloud
-              architectures. Skilled in deploying and managing infrastructure
-              using AWS services such as EC2, S3, RDS, VPC, IAM, and EKS,
-              combined with automation tools like Terraform and CloudFormation.
-            </p>
-            <p>
-              Experienced in developing and deploying containerized applications
-              using Docker and Kubernetes, and supporting continuous integration
-              and delivery through GitHub Actions and Jenkins. Strong background
-              in Python, Linux, and end-to-end infrastructure monitoring with
-              CloudWatch and related tools.
-            </p>
-            <p>
-              Capable of architecting and optimizing database solutions using
-              RDS and DynamoDB, while ensuring compliance, performance, and
-              operational excellence across hybrid and cloud-native
-              environments. Passionate about enabling efficiency, security, and
-              innovation through cloud technologies and collaborative
-              engineering practices.
+            I’m a Frontend Developer and DevOps/Cloud Engineer with hands-on experience building and deploying modern, scalable web applications from development to production.
+            On the frontend, I specialize in React, Next.js, TypeScript, and Tailwind CSS, creating responsive, high-performance interfaces that deliver seamless user experiences. 
+            I focus on clean code, reusable components, and translating designs into pixel-perfect, production-ready applications.
+            On the DevOps side, I work with AWS, Docker, Kubernetes, Terraform, and CI/CD pipelines to ensure applications are reliably deployed, scalable, and easy to maintain. 
+            I prioritize automation, performance, and system stability, making sure everything runs smoothly in real-world environments.
+            This combination allows me to bridge the gap between development and deployment — building applications that not only look great but also perform efficiently and scale with users.
+            I enjoy working on projects where I can take ownership, solve real problems, and deliver solutions that are practical, maintainable, and built for growth.
             </p>
           </div>
         </div>
@@ -193,7 +180,7 @@ export default function Home() {
 
       {/* Tech Stack Section */}
       <section id="tech-stack" className="py-12 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="inline-flex items-center gap-2 text-accent text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <span className="w-2 h-2 bg-accent rounded-full"></span>
             TECH STACK
