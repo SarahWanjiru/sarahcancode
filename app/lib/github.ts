@@ -45,29 +45,47 @@ export type Project = {
 };
 
 export async function getGitHubProjects(): Promise<Project[]> {
+  const username = process.env.GITHUB_USERNAME;
+  if (!username) {
+    console.error("[github] GITHUB_USERNAME env var is not set");
+    return [];
+  }
+
+  const token = process.env.GITHUB_TOKEN;
+  const headers: HeadersInit = token
+    ? { Authorization: `Bearer ${token}` }
+    : {};
+
+  const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
+
   try {
-    const res = await fetch(
-      "https://api.github.com/users/SarahWanjiru/repos?sort=updated&per_page=100",
-      { next: { revalidate: 3600 } }
-    );
-    if (!res.ok) return [];
+    const res = await fetch(url, { headers, next: { revalidate: 3600 } });
+
+    if (!res.ok) {
+      console.error(`[github] fetch failed: ${res.status} ${res.statusText} — ${url}`);
+      return [];
+    }
 
     const repos: GitHubRepo[] = await res.json();
 
-    return repos
-      .filter((r) => r.description && detectCategory(r.topics) !== null)
-      .map((r) => ({
+    return repos.reduce<Project[]>((acc, r) => {
+      const category = detectCategory(r.topics);
+      if (!category || !r.description) return acc;
+      acc.push({
         id: r.id,
         name: r.name.replace(/[-_]/g, " "),
-        description: r.description!,
+        description: r.description,
         url: r.html_url,
-        category: detectCategory(r.topics)!,
+        category,
         tags: extractTags(r.topics),
         language: r.language,
         stars: r.stargazers_count,
         forks: r.forks_count,
-      }));
-  } catch {
+      });
+      return acc;
+    }, []);
+  } catch (err) {
+    console.error(`[github] unexpected error fetching ${url}:`, err);
     return [];
   }
 }
