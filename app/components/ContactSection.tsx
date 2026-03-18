@@ -101,7 +101,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6">
+    <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-4 sm:mb-6">
           <span className="w-2 h-2 bg-accent rounded-full"></span>

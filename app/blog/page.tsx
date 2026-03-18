@@ -11,7 +11,7 @@ export default async function BlogPage() {
     <div className="min-h-screen bg-bg-primary">
 
       {/* Featured Post */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {featured ? (
             <a
@@ -59,7 +59,7 @@ export default async function BlogPage() {
       <PostsGrid posts={posts.slice(1)} />
 
       {/* Newsletter */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-text-primary mb-4">Stay in the loop</h2>
           <p className="text-text-secondary mb-8">
