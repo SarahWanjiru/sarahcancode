@@ -1,12 +1,11 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ProjectsGrid from "./components/ProjectsGrid";
+import { getGitHubProjects } from "./lib/github";
 
-export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState("Web Development");
+export default async function Home() {
+  const projects = await getGitHubProjects();
   return (
     <div className="min-h-screen bg-bg-primary px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
@@ -81,106 +80,7 @@ export default function Home() {
             Featured Work
           </h2>
 
-          {/* Category Tabs */}
-          <div
-            className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 border-b border-border overflow-x-auto"
-            role="tablist"
-          >
-            {["Web Development", "App Development", "Cloud & DevOps"].map(
-              (category) => (
-                <button
-                  key={category}
-                  role="tab"
-                  aria-selected={selectedCategory === category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium whitespace-nowrap ${
-                    selectedCategory === category
-                      ? "text-accent border-b-2 border-accent"
-                      : "text-text-secondary hover:text-text-primary"
-                  }`}
-                >
-                  {category}
-                </button>
-              ),
-            )}
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project Card 1 */}
-            <div className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-bg-secondary"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-text-primary mb-2">
-                  E-Commerce Platform
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Full-stack marketplace with real-time inventory and payment
-                  processing
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    Next.js
-                  </span>
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    TypeScript
-                  </span>
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    Stripe
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Card 2 */}
-            <div className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-bg-secondary"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-text-primary mb-2">
-                  SaaS Dashboard
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Analytics platform with real-time data visualization and
-                  reporting
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    React
-                  </span>
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    D3.js
-                  </span>
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    Node.js
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Card 3 */}
-            <div className="bg-surface border border-border rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-bg-secondary"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-text-primary mb-2">
-                  Portfolio Website
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Modern portfolio with dark mode and smooth animations
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    Next.js
-                  </span>
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    Tailwind
-                  </span>
-                  <span className="px-3 py-1 bg-bg-secondary text-text-primary text-xs rounded-full">
-                    Framer
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProjectsGrid projects={projects} />
         </div>
       </section>
 
