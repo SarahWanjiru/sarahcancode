@@ -80,7 +80,13 @@ export default async function Home() {
             Featured Work
           </h2>
 
-          <ProjectsGrid projects={projects} />
+          {projects.length === 0 ? (
+           <p className="text-text-secondary text-sm">
++              No projects to show right now. Check back soon.
++            </p>
+          ) : (
+            <ProjectsGrid projects={projects} />
+          )}
         </div>
       </section>
 
