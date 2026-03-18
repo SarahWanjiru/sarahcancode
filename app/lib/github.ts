@@ -52,9 +52,10 @@ export async function getGitHubProjects(): Promise<Project[]> {
   }
 
   const token = process.env.GITHUB_TOKEN;
-  const headers: HeadersInit = token
-    ? { Authorization: `Bearer ${token}` }
-    : {};
+  const headers: HeadersInit = {
+    Accept: "application/vnd.github.mercy-preview+json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  };
 
   const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
 
