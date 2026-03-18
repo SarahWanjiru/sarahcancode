@@ -15,15 +15,15 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16">
           <a
             href="/"
             className="flex items-center gap-2 text-base sm:text-lg font-bold text-text-primary"
           >
             <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white text-sm">
-              SC
+              SCC
             </div>
             <span>SarahCanCode</span>
           </a>

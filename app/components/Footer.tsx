@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white font-bold">
-              SC
+              SCC
             </div>
             <span className="text-3xl font-bold text-text-primary">SarahCanCode</span>
           </div>
