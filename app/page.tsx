@@ -49,15 +49,21 @@ export default function Home() {
             ABOUT ME
           </div>
 
-          <div className="space-y-4 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
+          <div className="space-y-5 text-text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
             <p>
-            I’m a Frontend Developer and DevOps/Cloud Engineer with hands-on experience building and deploying modern, scalable web applications from development to production.
-            On the frontend, I specialize in React, Next.js, TypeScript, and Tailwind CSS, creating responsive, high-performance interfaces that deliver seamless user experiences. 
-            I focus on clean code, reusable components, and translating designs into pixel-perfect, production-ready applications.
-            On the DevOps side, I work with AWS, Docker, Kubernetes, Terraform, and CI/CD pipelines to ensure applications are reliably deployed, scalable, and easy to maintain. 
-            I prioritize automation, performance, and system stability, making sure everything runs smoothly in real-world environments.
-            This combination allows me to bridge the gap between development and deployment — building applications that not only look great but also perform efficiently and scale with users.
-            I enjoy working on projects where I can take ownership, solve real problems, and deliver solutions that are practical, maintainable, and built for growth.
+              I&apos;m a <strong className="text-text-primary">Frontend Developer</strong> and <strong className="text-text-primary">Cloud/DevOps Engineer</strong> with hands-on experience building and deploying modern, scalable web applications from development to production.
+            </p>
+            <p>
+              On the <strong className="text-text-primary">frontend</strong>, I specialize in React, Next.js, TypeScript, and Tailwind CSS &mdash; creating responsive, high-performance user interfaces with clean, maintainable code and pixel-perfect design implementation.
+            </p>
+            <p>
+              On the <strong className="text-text-primary">cloud side</strong>, I design and manage infrastructure using AWS, ensuring applications are secure, scalable, and highly available. I also leverage Docker, Kubernetes, Terraform, and CI/CD pipelines to automate deployments and streamline development workflows.
+            </p>
+            <p>
+              This combination allows me to bridge the gap between <strong className="text-text-primary">frontend development, cloud infrastructure, and DevOps</strong> &mdash; delivering applications that are not only visually polished but also reliable, scalable, and production-ready.
+            </p>
+            <p>
+              I focus on building solutions that are efficient, maintainable, and optimized for real-world performance &mdash; helping products grow with confidence.
             </p>
           </div>
         </div>
