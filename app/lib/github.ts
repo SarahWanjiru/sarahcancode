@@ -58,8 +58,12 @@ export async function getGitHubProjects(): Promise<Project[]> {
 
   const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
 
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 10_000);
+
   try {
-    const res = await fetch(url, { headers, next: { revalidate: 300 } });
+    const res = await fetch(url, { headers, signal: controller.signal, next: { revalidate: 300 } } as RequestInit);
+    clearTimeout(timer);
 
     if (!res.ok) {
       console.error(`[github] fetch failed: ${res.status} ${res.statusText} — ${url}`);
@@ -85,7 +89,12 @@ export async function getGitHubProjects(): Promise<Project[]> {
       return acc;
     }, []);
   } catch (err) {
-    console.error(`[github] unexpected error fetching ${url}:`, err);
+    clearTimeout(timer);
+    if (err instanceof Error && err.name === "AbortError") {
+      console.error(`[github] request timed out after 10s — ${url}`);
+    } else {
+      console.error(`[github] unexpected error fetching ${url}:`, err);
+    }
     return [];
   }
 }
