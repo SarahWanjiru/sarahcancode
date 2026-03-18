@@ -59,7 +59,7 @@ export async function getGitHubProjects(): Promise<Project[]> {
   const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
 
   try {
-    const res = await fetch(url, { headers, next: { revalidate: 3600 } });
+    const res = await fetch(url, { headers, next: { revalidate: 300 } });
 
     if (!res.ok) {
       console.error(`[github] fetch failed: ${res.status} ${res.statusText} — ${url}`);
