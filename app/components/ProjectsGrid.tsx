@@ -6,6 +6,8 @@ import type { Project } from "../lib/github";
 
 const CATEGORIES = ["All", "Web Development", "App Development", "Cloud & DevOps"];
 
+const slug = (cat: string) => cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const [selected, setSelected] = useState("All");
 
@@ -20,7 +22,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       if (e.key === "ArrowLeft") next = CATEGORIES[(idx - 1 + CATEGORIES.length) % CATEGORIES.length];
       if (next) {
         setSelected(next);
-        (document.getElementById(`${next}-tab`) as HTMLElement)?.focus();
+        (document.getElementById(`${slug(next)}-tab`) as HTMLElement)?.focus();
       }
     },
     [selected]
@@ -36,10 +38,10 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
-            id={`${cat}-tab`}
+            id={`${slug(cat)}-tab`}
             role="tab"
             aria-selected={selected === cat}
-            aria-controls={`${cat}-panel`}
+            aria-controls={`${slug(cat)}-panel`}
             tabIndex={selected === cat ? 0 : -1}
             onClick={() => setSelected(cat)}
             className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium whitespace-nowrap ${
@@ -54,9 +56,9 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       </div>
 
       <div
-        id={`${selected}-panel`}
+        id={`${slug(selected)}-panel`}
         role="tabpanel"
-        aria-labelledby={`${selected}-tab`}
+        aria-labelledby={`${slug(selected)}-tab`}
       >
         {filtered.length === 0 ? (
           <p className="text-text-secondary text-sm">No projects in this category yet.</p>
