@@ -43,7 +43,7 @@ export async function getMediumPosts(): Promise<MediumPost[]> {
   try {
     const res = await fetch(
       "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sarahndungu815",
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 300 } }
     );
 
     if (!res.ok) return [];
