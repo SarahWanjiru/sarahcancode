@@ -81,9 +81,9 @@ export default async function Home() {
           </h2>
 
           {projects.length === 0 ? (
-            <p className="text-text-secondary text-sm">
-              Projects could not be loaded. Check back soon.
-            </p>
+           <p className="text-text-secondary text-sm">
++              No projects to show right now. Check back soon.
++            </p>
           ) : (
             <ProjectsGrid projects={projects} />
           )}
