@@ -3,9 +3,14 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ProjectsGrid from "./components/ProjectsGrid";
 import { getGitHubProjects } from "./lib/github";
+import { Suspense } from "react";
 
-export default async function Home() {
+async function Projects() {
   const projects = await getGitHubProjects();
+  return <ProjectsGrid projects={projects} />;
+}
+
+export default function Home() {
   return (
     <div className="min-h-screen bg-bg-primary px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
@@ -80,13 +85,9 @@ export default async function Home() {
             Featured Work
           </h2>
 
-          {projects.length === 0 ? (
-           <p className="text-text-secondary text-sm">
-+              No projects to show right now. Check back soon.
-+            </p>
-          ) : (
-            <ProjectsGrid projects={projects} />
-          )}
+          <Suspense fallback={<p className="text-text-secondary text-sm">Loading projects...</p>}>
+            <Projects />
+          </Suspense>
         </div>
       </section>
 
