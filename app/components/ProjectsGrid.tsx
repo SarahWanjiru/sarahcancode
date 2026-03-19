@@ -5,14 +5,19 @@ import { Star, GitFork, ExternalLink } from "lucide-react";
 import type { Project } from "../lib/github";
 
 const CATEGORIES = ["All", "Web Development", "App Development", "Cloud & DevOps"];
+const PAGE_SIZE = 6;
 
 const slug = (cat: string) => cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const [selected, setSelected] = useState("All");
+  const [page, setPage] = useState(1);
 
   const filtered =
     selected === "All" ? projects : projects.filter((p) => p.category === selected);
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -22,6 +27,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       if (e.key === "ArrowLeft") next = CATEGORIES[(idx - 1 + CATEGORIES.length) % CATEGORIES.length];
       if (next) {
         setSelected(next);
+        setPage(1);
         (document.getElementById(`${slug(next)}-tab`) as HTMLElement)?.focus();
       }
     },
@@ -43,7 +49,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             aria-selected={selected === cat}
             aria-controls={`${slug(cat)}-panel`}
             tabIndex={selected === cat ? 0 : -1}
-            onClick={() => setSelected(cat)}
+            onClick={() => { setSelected(cat); setPage(1); }}
             className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium whitespace-nowrap ${
               selected === cat
                 ? "text-accent border-b-2 border-accent"
@@ -60,11 +66,11 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
         role="tabpanel"
         aria-labelledby={`${slug(selected)}-tab`}
       >
-        {filtered.length === 0 ? (
+        {paginated.length === 0 ? (
           <p className="text-text-secondary text-sm">No projects in this category yet.</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((project) => (
+            {paginated.map((project) => (
               <a
                 key={project.id}
                 href={project.url}
@@ -108,6 +114,28 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 </div>
               </a>
             ))}
+          </div>
+        )}
+
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between mt-8">
+            <button
+              onClick={() => setPage((p) => p - 1)}
+              disabled={page === 1}
+              className="px-4 py-2 text-sm font-medium text-text-secondary border border-border rounded-lg hover:text-text-primary hover:border-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              ← Previous
+            </button>
+            <span className="text-sm text-text-secondary">
+              Page {page} of {totalPages}
+            </span>
+            <button
+              onClick={() => setPage((p) => p + 1)}
+              disabled={page === totalPages}
+              className="px-4 py-2 text-sm font-medium text-text-secondary border border-border rounded-lg hover:text-text-primary hover:border-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              Next →
+            </button>
           </div>
         )}
       </div>
