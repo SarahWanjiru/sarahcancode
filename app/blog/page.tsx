@@ -63,7 +63,7 @@ export default async function BlogPage() {
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">Enjoying the content?</h2>
           <p className="text-text-secondary mb-10 max-w-xl mx-auto">
-            These are my latest 10 posts. Follow me on Medium to get notified when I publish new articles and to read the full archive.
+            These are my latest {posts.length} {posts.length === 1 ? "post" : "posts"}. Follow me on Medium to get notified when I publish new articles and to read the full archive.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
