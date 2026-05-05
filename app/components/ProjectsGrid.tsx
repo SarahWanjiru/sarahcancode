@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Star, GitFork, ExternalLink } from "lucide-react";
 import type { Project } from "../lib/github";
 
@@ -12,6 +12,9 @@ const slug = (cat: string) => cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").repl
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const [selected, setSelected] = useState("All");
   const [page, setPage] = useState(1);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const filtered =
     selected === "All" ? projects : projects.filter((p) => p.category === selected);
@@ -36,6 +39,8 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
 
   return (
     <>
+      {!mounted ? null : (
+      <>
       <div
         className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 border-b border-border overflow-x-auto"
         role="tablist"
@@ -139,6 +144,8 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
           </div>
         )}
       </div>
+    </>
+    )}
     </>
   );
 }
