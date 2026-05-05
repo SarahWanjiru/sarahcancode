@@ -9,12 +9,19 @@ const PAGE_SIZE = 6;
 
 const slug = (cat: string) => cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
-export default function ProjectsGrid({ projects }: { projects: Project[] }) {
+export default function ProjectsGrid() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState("All");
   const [page, setPage] = useState(1);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((r) => r.json())
+      .then((data) => setProjects(data))
+      .catch(() => setProjects([]))
+      .finally(() => setLoading(false));
+  }, []);
 
   const filtered =
     selected === "All" ? projects : projects.filter((p) => p.category === selected);
@@ -37,10 +44,12 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
     [selected]
   );
 
+  if (loading) {
+    return <p className="text-text-secondary text-sm">Loading projects...</p>;
+  }
+
   return (
     <>
-      {!mounted ? null : (
-      <>
       <div
         className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 border-b border-border overflow-x-auto"
         role="tablist"
@@ -87,7 +96,9 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   <h3 className="text-base font-semibold text-text-primary capitalize leading-snug">
                     {project.name}
                   </h3>
-                  <ExternalLink className="w-4 h-4 text-text-secondary group-hover:text-accent transition-colors shrink-0 mt-0.5" />
+                  <span suppressHydrationWarning>
+                    <ExternalLink className="w-4 h-4 text-text-secondary group-hover:text-accent transition-colors shrink-0 mt-0.5" />
+                  </span>
                 </div>
 
                 <p className="text-text-secondary text-sm leading-relaxed flex-1">
@@ -107,7 +118,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-4 text-text-secondary text-xs">
+                <div className="flex items-center gap-4 text-text-secondary text-xs" suppressHydrationWarning>
                   <span className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5" />
                     {project.stars}
@@ -144,8 +155,6 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
           </div>
         )}
       </div>
-    </>
-    )}
     </>
   );
 }
