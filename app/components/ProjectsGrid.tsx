@@ -129,7 +129,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
               disabled={page === 1}
               className="px-4 py-2 text-sm font-medium text-text-secondary border border-border rounded-lg hover:text-text-primary hover:border-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              ← Previous
+               Previous
             </button>
             <span className="text-sm text-text-secondary">
               Page {page} of {totalPages}
@@ -139,7 +139,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
               disabled={page === totalPages}
               className="px-4 py-2 text-sm font-medium text-text-secondary border border-border rounded-lg hover:text-text-primary hover:border-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              Next →
+              Next 
             </button>
           </div>
         )}
