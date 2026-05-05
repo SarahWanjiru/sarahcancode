@@ -91,7 +91,7 @@ Create a `.env.local` file in the project root:
 
 ```env
 RESEND_API_KEY=your_resend_api_key
-GITHUB_USERNAME=SarahWanjiru
+GITHUB_USERNAME=Your-Github-Username
 GITHUB_TOKEN=your_github_token        # optional, increases rate limit to 5000/hr
 REVALIDATE_SECRET=your_secret_string  # used to authenticate the webhook endpoint
 ```
