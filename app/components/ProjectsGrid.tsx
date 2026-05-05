@@ -18,7 +18,7 @@ export default function ProjectsGrid() {
   useEffect(() => {
     fetch("/api/projects")
       .then((r) => r.json())
-      .then((data) => setProjects(data))
+      .then((data) => setProjects(Array.isArray(data) ? data : []))
       .catch(() => setProjects([]))
       .finally(() => setLoading(false));
   }, []);
