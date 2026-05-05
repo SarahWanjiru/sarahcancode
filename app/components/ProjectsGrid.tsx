@@ -12,16 +12,26 @@ const slug = (cat: string) => cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").repl
 export default function ProjectsGrid() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState("All");
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    fetch("/api/projects")
-      .then((r) => r.json())
-      .then((data) => setProjects(data))
-      .catch(() => setProjects([]))
-      .finally(() => setLoading(false));
+  const fetchProjects = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const r = await fetch("/api/projects");
+      const data = await r.json();
+      setProjects(Array.isArray(data) ? data : []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to fetch projects");
+      setProjects([]);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => { fetchProjects(); }, [fetchProjects]);
 
   const filtered =
     selected === "All" ? projects : projects.filter((p) => p.category === selected);
@@ -46,6 +56,20 @@ export default function ProjectsGrid() {
 
   if (loading) {
     return <p className="text-text-secondary text-sm">Loading projects...</p>;
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col gap-3">
+        <p className="text-text-secondary text-sm">{error}</p>
+        <button
+          onClick={fetchProjects}
+          className="self-start px-4 py-2 text-sm font-medium border border-border rounded-lg text-text-primary hover:border-accent hover:text-accent transition-colors"
+        >
+          Retry
+        </button>
+      </div>
+    );
   }
 
   return (
