@@ -66,12 +66,12 @@ export default async function BlogPage() {
             Follow me on Medium to get my latest posts.
           </p>
           <a
-            href="https://medium.com/@sarahndungu815"
+            href="https://medium.com/@sarahcancode"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors"
           >
-            Follow on Medium →
+            Follow on Medium 
           </a>
         </div>
       </section>
