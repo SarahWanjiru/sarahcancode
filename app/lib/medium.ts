@@ -42,7 +42,7 @@ function formatDate(dateStr: string): string {
 export async function getMediumPosts(): Promise<MediumPost[]> {
   try {
     const res = await fetch(
-      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sarahndungu815",
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sarahcancode",
       { next: { revalidate: 300 } }
     );
 

@@ -56,23 +56,33 @@ export default async function BlogPage() {
       </section>
 
       {/* Posts Grid with category filter */}
-      <PostsGrid posts={posts.slice(1)} />
+      <PostsGrid posts={posts} />
 
-      {/* Newsletter */}
+      {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-text-primary mb-4">Stay in the loop</h2>
-          <p className="text-text-secondary mb-8">
-            Follow me on Medium to get my latest posts.
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">Enjoying the content?</h2>
+          <p className="text-text-secondary mb-10 max-w-xl mx-auto">
+            These are my latest {posts.length} {posts.length === 1 ? "post" : "posts"}. Follow me on Medium to get notified when I publish new articles and to read the full archive.
           </p>
-          <a
-            href="https://medium.com/@sarahndungu815"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors"
-          >
-            Follow on Medium →
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://medium.com/@sarahcancode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors"
+            >
+              Read More on Medium
+            </a>
+            <a
+              href="https://medium.com/@sarahcancode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-3 border border-border text-text-primary rounded-lg font-medium hover:border-accent hover:text-accent transition-colors"
+            >
+              Follow @sarahcancode
+            </a>
+          </div>
         </div>
       </section>
 

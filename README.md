@@ -175,6 +175,5 @@ Add all environment variables from `.env.local` in Amplify console → App setti
 
 This project is private and proprietary.
 
----
 
-Built with ❤️ by Sarah - Engineering reliable systems from interface to infrastructure.
+SarahCanCode - Engineering reliable systems from interface to infrastructure.
