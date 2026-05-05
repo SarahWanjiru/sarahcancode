@@ -71,7 +71,7 @@ export default function Footer() {
               <Twitter className="w-4 h-4" />
             </a>
             <a
-              href="https://medium.com/@sarahndungu815"
+              href="https://medium.com/@sarahcancode"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Medium — Sarah Ndungu"

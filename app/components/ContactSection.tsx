@@ -177,7 +177,7 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="https://medium.com/@sarahndungu815"
+                  href="https://medium.com/@sarahcancode"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors group"
