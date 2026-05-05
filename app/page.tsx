@@ -2,13 +2,6 @@ import Image from "next/image";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ProjectsGrid from "./components/ProjectsGrid";
-import { getGitHubProjects } from "./lib/github";
-import { Suspense } from "react";
-
-async function Projects() {
-  const projects = await getGitHubProjects();
-  return <ProjectsGrid projects={projects} />;
-}
 
 export default function Home() {
   return (
@@ -85,9 +78,7 @@ export default function Home() {
             Featured Work
           </h2>
 
-          <Suspense fallback={<p className="text-text-secondary text-sm">Loading projects...</p>}>
-            <Projects />
-          </Suspense>
+          <ProjectsGrid />
         </div>
       </section>
 
