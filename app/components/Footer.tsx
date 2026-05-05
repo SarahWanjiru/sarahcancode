@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white font-bold">
               SCC
             </div>
-            <span className="text-3xl font-bold text-text-primary">SarahCanCode</span>
+            <span className="text-3xl font-bold text-text-primary">Sarah Can Code</span>
           </div>
           <p className="text-text-secondary max-w-sm">
             Engineering reliable systems from interface to infrastructure.
