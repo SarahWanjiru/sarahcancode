@@ -22,6 +22,9 @@ export default function ProjectsGrid() {
     try {
       const r = await fetch("/api/projects");
       const data = await r.json();
+      if (!r.ok) {
+        throw new Error(data?.error || `API error ${r.status}`);
+      }
       setProjects(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch projects");
