@@ -45,12 +45,7 @@ export type Project = {
 };
 
 export async function getGitHubProjects(): Promise<Project[]> {
-  const username = process.env.GITHUB_USERNAME;
-  if (!username) {
-    console.error("[github] GITHUB_USERNAME env var is not set");
-    return [];
-  }
-
+  const username = process.env.GITHUB_USERNAME ?? "SarahWanjiru";
   const token = process.env.GITHUB_TOKEN;
   const headers: HeadersInit = {
     Accept: "application/vnd.github.mercy-preview+json",
