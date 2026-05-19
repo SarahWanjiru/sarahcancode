@@ -10,6 +10,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
+  },
   "dependencies": {
     "lucide-react": "^0.460.0",
     "next": "16.1.6",
