@@ -213,7 +213,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-semibold text-text-primary">Email</p>
-                      <p className="text-sm text-text-secondary">sarahlearn84@gmail.com</p>
+                      <p className="text-sm text-text-secondary">sarahndungu815@gmail.com</p>
                     </div>
                   </div>
                 </a>
@@ -259,7 +259,7 @@ export default function ContactSection() {
             
             {submitStatus === "success" && (
               <div role="status" aria-live="polite" aria-atomic="true" className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
-                ✓ Message sent successfully! I&apos;ll get back to you soon.
+                 Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
             
