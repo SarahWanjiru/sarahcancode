@@ -395,7 +395,6 @@ export default function ContactSection() {
                 ) : (
                   <>
                     Send Message
-                    <span>→</span>
                   </>
                 )}
               </button>
