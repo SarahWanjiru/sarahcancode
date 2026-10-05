@@ -115,11 +115,11 @@ pnpm start
 
 Projects are fetched automatically from the GitHub API and categorized using repo **topics**:
 
-| Topic | Category |
-|-------|----------|
-| `web` | Web Development |
+| Topic    | Category        |
+| -------- | --------------- |
+| `web`    | Web Development |
 | `mobile` | App Development |
-| `cloud` | Cloud & DevOps |
+| `cloud`  | Cloud & DevOps  |
 
 To add a project to the portfolio, go to the repo on GitHub → Settings (gear icon next to About) → add the relevant topic. No code changes needed.
 
@@ -174,6 +174,5 @@ Add all environment variables from `.env.local` in Amplify console → App setti
 ## License
 
 This project is private and proprietary.
-
 
 SarahCanCode - Engineering reliable systems from interface to infrastructure.

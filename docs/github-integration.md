@@ -14,10 +14,10 @@ The portfolio automatically fetches and displays projects from GitHub using the 
 GitHub topics are used as the categorization system. Go to any repo on GitHub → click the gear icon next to "About" → add topics.
 
 | Topic (or topic containing) | Portfolio Category |
-|-----------------------------|--------------------|
-| `web` | Web Development |
-| `mobile` | App Development |
-| `cloud` | Cloud & DevOps |
+| --------------------------- | ------------------ |
+| `web`                       | Web Development    |
+| `mobile`                    | App Development    |
+| `cloud`                     | Cloud & DevOps     |
 
 Topics can be combined with other keywords using hyphens and they still work:
 
@@ -30,10 +30,10 @@ Repos without a matching topic or without a description are excluded from the po
 
 ## Environment Variables
 
-| Variable | Description |
-|----------|-------------|
-| `GITHUB_USERNAME` | Your GitHub username — used to build the API URL |
-| `GITHUB_TOKEN` | Optional personal access token. Without it, GitHub allows 60 requests/hr. With it, 5000/hr. |
+| Variable          | Description                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------- |
+| `GITHUB_USERNAME` | Your GitHub username — used to build the API URL                                            |
+| `GITHUB_TOKEN`    | Optional personal access token. Without it, GitHub allows 60 requests/hr. With it, 5000/hr. |
 
 To generate a token: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → New token. Grant read-only access to public repositories.
 
