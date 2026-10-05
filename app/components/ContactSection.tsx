@@ -193,7 +193,6 @@ export default function ContactSection() {
                       <p className="text-sm text-text-secondary">Articles & technical writing</p>
                     </div>
                   </div>
-                  <span className="text-text-secondary group-hover:text-accent transition-colors">→</span>
                 </a>
               </div>
             </div>
