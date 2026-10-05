@@ -27,14 +27,14 @@ RESEND_API_KEY=re_xxxxxxxxxxxxx
 Update `app/api/contact/route.ts`:
 
 ```typescript
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // In POST function:
 const { data, error } = await resend.emails.send({
-  from: 'portfolio@sarahcancode.dev',
-  to: 'hello@sarahcancode.dev',
+  from: "portfolio@sarahcancode.dev",
+  to: "hello@sarahcancode.dev",
   subject: `Contact Form: ${subject}`,
   replyTo: email,
   html: `
@@ -43,8 +43,8 @@ const { data, error } = await resend.emails.send({
     <p><strong>Subject:</strong> ${subject}</p>
     <p><strong>Message:</strong></p>
     <p>${message}</p>
-    ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ''}
-  `
+    ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ""}
+  `,
 });
 
 if (error) throw error;
@@ -77,14 +77,14 @@ SENDGRID_API_KEY=SG.xxxxxxxxxxxxx
 Update `app/api/contact/route.ts`:
 
 ```typescript
-import sgMail from '@sendgrid/mail';
+import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // In POST function:
 await sgMail.send({
-  to: 'hello@sarahcancode.dev',
-  from: 'portfolio@sarahcancode.dev',
+  to: "hello@sarahcancode.dev",
+  from: "portfolio@sarahcancode.dev",
   replyTo: email,
   subject: `Contact Form: ${subject}`,
   html: `
@@ -93,8 +93,8 @@ await sgMail.send({
     <p><strong>Subject:</strong> ${subject}</p>
     <p><strong>Message:</strong></p>
     <p>${message}</p>
-    ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ''}
-  `
+    ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ""}
+  `,
 });
 ```
 
@@ -127,7 +127,7 @@ SMTP_PASS=your-app-password
 Update `app/api/contact/route.ts`:
 
 ```typescript
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -142,7 +142,7 @@ const transporter = nodemailer.createTransport({
 // In POST function:
 await transporter.sendMail({
   from: process.env.SMTP_USER,
-  to: 'hello@sarahcancode.dev',
+  to: "hello@sarahcancode.dev",
   replyTo: email,
   subject: `Contact Form: ${subject}`,
   html: `
@@ -151,8 +151,8 @@ await transporter.sendMail({
     <p><strong>Subject:</strong> ${subject}</p>
     <p><strong>Message:</strong></p>
     <p>${message}</p>
-    ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ''}
-  `
+    ${contact ? `<p><strong>Preferred Contact:</strong> ${contact}</p>` : ""}
+  `,
 });
 ```
 
@@ -161,6 +161,7 @@ await transporter.sendMail({
 ## Current Status
 
 **Implemented:**
+
 - Form validation (client-side)
 - Error handling
 - Loading states
@@ -168,6 +169,7 @@ await transporter.sendMail({
 - API route created
 
 **Pending:**
+
 - Email service integration (choose one above)
 
 ---
@@ -177,6 +179,7 @@ await transporter.sendMail({
 ### Before Email Integration
 
 The form will:
+
 - Validate all inputs
 - Show loading state
 - Log submissions to console
@@ -185,6 +188,7 @@ The form will:
 ### After Email Integration
 
 Test the following:
+
 - Submit a real form
 - Check spam folder
 - Verify reply-to works
@@ -204,11 +208,11 @@ Test the following:
 
 ## Comparison Table
 
-| Feature | Resend | SendGrid | Nodemailer |
-|---------|--------|----------|------------|
-| Free Tier | 3,000/month | 100/day | Unlimited |
-| Setup Time | 5 min | 10 min | 15 min |
-| Reliability | High | Very High | Depends on SMTP |
-| Developer Experience | Excellent | Good | Moderate |
-| Documentation | Excellent | Good | Good |
-| Recommended For | Modern apps | Enterprise | Self-hosted |
+| Feature              | Resend      | SendGrid   | Nodemailer      |
+| -------------------- | ----------- | ---------- | --------------- |
+| Free Tier            | 3,000/month | 100/day    | Unlimited       |
+| Setup Time           | 5 min       | 10 min     | 15 min          |
+| Reliability          | High        | Very High  | Depends on SMTP |
+| Developer Experience | Excellent   | Good       | Moderate        |
+| Documentation        | Excellent   | Good       | Good            |
+| Recommended For      | Modern apps | Enterprise | Self-hosted     |
