@@ -33,12 +33,14 @@
 ### Option A: Google reCAPTCHA v3 (Recommended)
 
 **Pros:**
+
 - Invisible to users (no clicking checkboxes)
 - Very effective (90%+ spam blocking)
 - Free up to 1M assessments/month
 - Industry standard
 
 **Cons:**
+
 - Requires Google account
 - Adds external dependency
 - Privacy concerns for some users
@@ -54,12 +56,14 @@ pnpm add react-google-recaptcha-v3
 1. Get keys at https://www.google.com/recaptcha/admin
 
 2. Add to `.env.local`:
+
 ```env
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=6Lc...
 RECAPTCHA_SECRET_KEY=6Lc...
 ```
 
 3. Wrap app in provider (`app/layout.tsx`):
+
 ```typescript
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
@@ -69,20 +73,22 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 ```
 
 4. Use in ContactSection:
+
 ```typescript
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const { executeRecaptcha } = useGoogleReCaptcha();
 
 // In handleSubmit:
-const token = await executeRecaptcha('contact_form');
+const token = await executeRecaptcha("contact_form");
 // Send token to API
 ```
 
 5. Verify in API route:
+
 ```typescript
 const response = await fetch(
-  `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`
+  `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
 );
 const data = await response.json();
 if (data.score < 0.5) {
@@ -95,12 +101,14 @@ if (data.score < 0.5) {
 ### Option B: Cloudflare Turnstile (Privacy-Friendly)
 
 **Pros:**
+
 - Privacy-focused (no tracking)
 - Free unlimited
 - Cloudflare infrastructure
 - Similar to reCAPTCHA but better privacy
 
 **Cons:**
+
 - Newer service
 - Less proven than reCAPTCHA
 
@@ -111,6 +119,7 @@ pnpm add @marsidev/react-turnstile
 ```
 
 **Implementation:**
+
 1. Get keys at https://dash.cloudflare.com/turnstile
 2. Similar implementation to reCAPTCHA
 
@@ -119,12 +128,14 @@ pnpm add @marsidev/react-turnstile
 ### Option C: hCaptcha (Privacy-Focused)
 
 **Pros:**
+
 - Privacy-focused
 - GDPR compliant
 - Free tier available
 - Pays websites for solving captchas
 
 **Cons:**
+
 - Visible to users (checkbox)
 - Can be annoying for users
 
@@ -145,12 +156,14 @@ pnpm add @upstash/ratelimit @upstash/redis
 1. Create account at https://upstash.com
 2. Create Redis database
 3. Add to `.env.local`:
+
 ```env
 UPSTASH_REDIS_REST_URL=...
 UPSTASH_REDIS_REST_TOKEN=...
 ```
 
 4. Update API route:
+
 ```typescript
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
@@ -179,6 +192,7 @@ if (!success) {
 ### Stage 1: MVP/Testing (Current)
 
 **Implemented:**
+
 - Honeypot field
 - Basic rate limiting
 - Client-side validation
@@ -188,6 +202,7 @@ if (!success) {
 ### Stage 2: Production (Recommended)
 
 **Add to Stage 1:**
+
 - Google reCAPTCHA v3 OR Cloudflare Turnstile
 - Upstash rate limiting
 
@@ -196,6 +211,7 @@ if (!success) {
 ### Stage 3: High Traffic
 
 **Add to Stage 2:**
+
 - Email service with spam filtering (Resend/SendGrid)
 - IP blocking for repeat offenders
 - Content filtering (check for spam keywords)
@@ -252,6 +268,7 @@ if (!success) {
 ## Current Status Summary
 
 **Implemented:**
+
 - Honeypot field (catches basic bots)
 - Rate limiting (3 per minute per IP)
 - Client-side validation
@@ -260,6 +277,7 @@ if (!success) {
 - Loading states
 
 **Optional (add if needed):**
+
 - reCAPTCHA v3 (if you get spam)
 - Upstash rate limiting (for production)
 - Email service integration (Resend/SendGrid)
@@ -294,14 +312,14 @@ if (!success) {
 
 ## Clerk vs Email Service Comparison
 
-| Feature | Email Service | Clerk |
-|---------|--------------|-------|
-| Contact forms | Perfect | Wrong tool |
-| User login | Can't do | Perfect |
-| Receive messages | Yes | No |
-| User accounts | No | Yes |
-| Cost | Free tier | Free tier |
-| Setup time | 15 min | 30 min |
+| Feature          | Email Service | Clerk      |
+| ---------------- | ------------- | ---------- |
+| Contact forms    | Perfect       | Wrong tool |
+| User login       | Can't do      | Perfect    |
+| Receive messages | Yes           | No         |
+| User accounts    | No            | Yes        |
+| Cost             | Free tier     | Free tier  |
+| Setup time       | 15 min        | 30 min     |
 
 **Your portfolio needs:** Email service (Resend/SendGrid)
 

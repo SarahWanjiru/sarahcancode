@@ -13,7 +13,9 @@ interface FormErrors {
 export default function ContactSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const [apiError, setApiError] = useState<string>("");
 
   const validateForm = (formData: FormData): FormErrors => {
@@ -50,13 +52,13 @@ export default function ContactSection() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    
+
     if (formData.get("website")) {
       setSubmitStatus("success");
       form.reset();
       return;
     }
-    
+
     const formErrors = validateForm(formData);
 
     if (Object.keys(formErrors).length > 0) {
@@ -72,19 +74,22 @@ export default function ContactSection() {
       subject: formData.get("subject"),
       message: formData.get("message"),
       contact: formData.get("your-contact"),
-      website: formData.get("website") // honeypot field
+      website: formData.get("website"), // honeypot field
     };
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
-      
+
       if (!response.ok) {
         const body = await response.json().catch(() => ({}));
-        setApiError(body.error || "Failed to send message. Please try again or email me directly.");
+        setApiError(
+          body.error ||
+            "Failed to send message. Please try again or email me directly.",
+        );
         setSubmitStatus("error");
         return;
       }
@@ -93,7 +98,9 @@ export default function ContactSection() {
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      setApiError("Failed to send message. Please try again or email me directly.");
+      setApiError(
+        "Failed to send message. Please try again or email me directly.",
+      );
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -153,7 +160,6 @@ export default function ContactSection() {
                       </p>
                     </div>
                   </div>
-                  
                 </a>
 
                 <a
@@ -173,7 +179,6 @@ export default function ContactSection() {
                       </p>
                     </div>
                   </div>
-                
                 </a>
 
                 <a
@@ -184,13 +189,19 @@ export default function ContactSection() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-[#000] rounded-lg flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
                       </svg>
                     </div>
                     <div>
                       <p className="font-semibold text-text-primary">Medium</p>
-                      <p className="text-sm text-text-secondary">Articles & technical writing</p>
+                      <p className="text-sm text-text-secondary">
+                        Articles & technical writing
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -212,7 +223,9 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <p className="font-semibold text-text-primary">Email</p>
-                      <p className="text-sm text-text-secondary">sarahndungu815@gmail.com</p>
+                      <p className="text-sm text-text-secondary">
+                        sarahndungu815@gmail.com
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -225,13 +238,21 @@ export default function ContactSection() {
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-[#25D366] rounded-lg flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-semibold text-text-primary">WhatsApp</p>
-                      <p className="text-sm text-text-secondary">+254 720 171 697</p>
+                      <p className="font-semibold text-text-primary">
+                        WhatsApp
+                      </p>
+                      <p className="text-sm text-text-secondary">
+                        +254 720 171 697
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -242,8 +263,12 @@ export default function ContactSection() {
                       <MapPin className="w-6 h-6 text-text-secondary" />
                     </div>
                     <div>
-                      <p className="font-semibold text-text-primary">Location</p>
-                      <p className="text-sm text-text-secondary">Nairobi, Kenya</p>
+                      <p className="font-semibold text-text-primary">
+                        Location
+                      </p>
+                      <p className="text-sm text-text-secondary">
+                        Nairobi, Kenya
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -255,19 +280,29 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold text-text-primary mb-6">
               Send a Message
             </h3>
-            
+
             {submitStatus === "success" && (
-              <div role="status" aria-live="polite" aria-atomic="true" className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400">
-                 Message sent successfully! I&apos;ll get back to you soon.
+              <div
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400"
+              >
+                Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
-            
+
             {submitStatus === "error" && (
-              <div role="alert" aria-live="assertive" aria-atomic="true" className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400">
+              <div
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+                className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400"
+              >
                 ✗ {apiError}
               </div>
             )}
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Honeypot field - hidden from users, catches bots */}
               {/* Using enticing name "website" to attract bots */}
@@ -279,7 +314,7 @@ export default function ContactSection() {
                 autoComplete="off"
                 aria-hidden="true"
               />
-              
+
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -298,7 +333,9 @@ export default function ContactSection() {
                     }`}
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                      {errors.name}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -318,7 +355,9 @@ export default function ContactSection() {
                     }`}
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                      {errors.email}
+                    </p>
                   )}
                 </div>
               </div>
@@ -340,7 +379,9 @@ export default function ContactSection() {
                   }`}
                 />
                 {errors.subject && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.subject}</p>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                    {errors.subject}
+                  </p>
                 )}
               </div>
 
@@ -361,11 +402,13 @@ export default function ContactSection() {
                   }`}
                 ></textarea>
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                    {errors.message}
+                  </p>
                 )}
               </div>
 
-               <div>
+              <div>
                 <label
                   htmlFor="your-contact"
                   className="block text-sm font-medium text-text-primary mb-2"
@@ -392,9 +435,7 @@ export default function ContactSection() {
                     Sending...
                   </>
                 ) : (
-                  <>
-                    Send Message
-                  </>
+                  <>Send Message</>
                 )}
               </button>
             </form>
