@@ -5,18 +5,26 @@ import Image from "next/image";
 import { MediumPost } from "../lib/medium";
 
 export default function PostsGrid({ posts }: { posts: MediumPost[] }) {
-  const allCategories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
+  const allCategories = [
+    "All",
+    ...Array.from(new Set(posts.map((p) => p.category))),
+  ];
   const [selected, setSelected] = useState("All");
 
-  const filtered = selected === "All" ? posts : posts.filter((p) => p.category === selected);
+  const filtered =
+    selected === "All" ? posts : posts.filter((p) => p.category === selected);
 
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
           <div>
-            <h2 className="text-4xl font-bold text-text-primary mb-2">Recent Stories</h2>
-            <p className="text-text-secondary">Insights, thoughts, and technical deep dives.</p>
+            <h2 className="text-4xl font-bold text-text-primary mb-2">
+              Recent Stories
+            </h2>
+            <p className="text-text-secondary">
+              Insights, thoughts, and technical deep dives.
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             {allCategories.map((cat) => (
@@ -36,7 +44,9 @@ export default function PostsGrid({ posts }: { posts: MediumPost[] }) {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="text-text-secondary text-center py-12">No posts found.</p>
+          <p className="text-text-secondary text-center py-12">
+            No posts found.
+          </p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((post) => (
@@ -57,11 +67,15 @@ export default function PostsGrid({ posts }: { posts: MediumPost[] }) {
                   />
                 </div>
                 <div className="p-6">
-                  <span className="text-xs font-medium text-accent mb-2 block">{post.category}</span>
+                  <span className="text-xs font-medium text-accent mb-2 block">
+                    {post.category}
+                  </span>
                   <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-text-secondary text-sm mb-4">{post.description}</p>
+                  <p className="text-text-secondary text-sm mb-4">
+                    {post.description}
+                  </p>
                   <div className="flex justify-between items-center text-xs text-text-secondary">
                     <span>{post.readTime}</span>
                     <span>{post.date}</span>

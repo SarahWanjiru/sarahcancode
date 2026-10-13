@@ -4,10 +4,19 @@ import { useCallback, useEffect, useState } from "react";
 import { Star, GitFork, ExternalLink } from "lucide-react";
 import type { Project } from "../lib/github";
 
-const CATEGORIES = ["All", "Web Development", "App Development", "Cloud & DevOps"];
+const CATEGORIES = [
+  "All",
+  "Web Development",
+  "App Development",
+  "Cloud & DevOps",
+];
 const PAGE_SIZE = 6;
 
-const slug = (cat: string) => cat.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const slug = (cat: string) =>
+  cat
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 export default function ProjectsGrid() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -34,10 +43,14 @@ export default function ProjectsGrid() {
     }
   }, []);
 
-  useEffect(() => { fetchProjects(); }, [fetchProjects]);
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
 
   const filtered =
-    selected === "All" ? projects : projects.filter((p) => p.category === selected);
+    selected === "All"
+      ? projects
+      : projects.filter((p) => p.category === selected);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -46,15 +59,17 @@ export default function ProjectsGrid() {
     (e: React.KeyboardEvent) => {
       const idx = CATEGORIES.indexOf(selected);
       let next: string | null = null;
-      if (e.key === "ArrowRight") next = CATEGORIES[(idx + 1) % CATEGORIES.length];
-      if (e.key === "ArrowLeft") next = CATEGORIES[(idx - 1 + CATEGORIES.length) % CATEGORIES.length];
+      if (e.key === "ArrowRight")
+        next = CATEGORIES[(idx + 1) % CATEGORIES.length];
+      if (e.key === "ArrowLeft")
+        next = CATEGORIES[(idx - 1 + CATEGORIES.length) % CATEGORIES.length];
       if (next) {
         setSelected(next);
         setPage(1);
         (document.getElementById(`${slug(next)}-tab`) as HTMLElement)?.focus();
       }
     },
-    [selected]
+    [selected],
   );
 
   if (loading) {
@@ -90,7 +105,10 @@ export default function ProjectsGrid() {
             aria-selected={selected === cat}
             aria-controls={`${slug(cat)}-panel`}
             tabIndex={selected === cat ? 0 : -1}
-            onClick={() => { setSelected(cat); setPage(1); }}
+            onClick={() => {
+              setSelected(cat);
+              setPage(1);
+            }}
             className={`px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium whitespace-nowrap ${
               selected === cat
                 ? "text-accent border-b-2 border-accent"
@@ -108,7 +126,9 @@ export default function ProjectsGrid() {
         aria-labelledby={`${slug(selected)}-tab`}
       >
         {paginated.length === 0 ? (
-          <p className="text-text-secondary text-sm">No projects in this category yet.</p>
+          <p className="text-text-secondary text-sm">
+            No projects in this category yet.
+          </p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paginated.map((project) => (
@@ -139,13 +159,19 @@ export default function ProjectsGrid() {
                     </span>
                   )}
                   {project.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 bg-bg-secondary text-text-secondary text-xs rounded-full">
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 bg-bg-secondary text-text-secondary text-xs rounded-full"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-4 text-text-secondary text-xs" suppressHydrationWarning>
+                <div
+                  className="flex items-center gap-4 text-text-secondary text-xs"
+                  suppressHydrationWarning
+                >
                   <span className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5" />
                     {project.stars}
@@ -167,7 +193,7 @@ export default function ProjectsGrid() {
               disabled={page === 1}
               className="px-4 py-2 text-sm font-medium text-text-secondary border border-border rounded-lg hover:text-text-primary hover:border-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-               Previous
+              Previous
             </button>
             <span className="text-sm text-text-secondary">
               Page {page} of {totalPages}
@@ -177,7 +203,7 @@ export default function ProjectsGrid() {
               disabled={page === totalPages}
               className="px-4 py-2 text-sm font-medium text-text-secondary border border-border rounded-lg hover:text-text-primary hover:border-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              Next 
+              Next
             </button>
           </div>
         )}

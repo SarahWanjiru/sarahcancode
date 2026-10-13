@@ -9,7 +9,6 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-bg-primary">
-
       {/* Featured Post */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -36,7 +35,9 @@ export default async function BlogPage() {
                 <h1 className="text-4xl font-bold text-text-primary mb-4 group-hover:text-accent transition-colors">
                   {featured.title}
                 </h1>
-                <p className="text-text-secondary mb-6">{featured.description}</p>
+                <p className="text-text-secondary mb-6">
+                  {featured.description}
+                </p>
                 <div className="flex items-center gap-4 text-sm text-text-secondary mb-6">
                   <span>{featured.date}</span>
                   <span>•</span>
@@ -61,9 +62,13 @@ export default async function BlogPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">Enjoying the content?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
+            Enjoying the content?
+          </h2>
           <p className="text-text-secondary mb-10 max-w-xl mx-auto">
-            These are my latest {posts.length} {posts.length === 1 ? "post" : "posts"}. Follow me on Medium to get notified when I publish new articles and to read the full archive.
+            These are my latest {posts.length}{" "}
+            {posts.length === 1 ? "post" : "posts"}. Follow me on Medium to get
+            notified when I publish new articles and to read the full archive.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a

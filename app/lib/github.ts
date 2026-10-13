@@ -27,9 +27,13 @@ function detectCategory(topics: string[]): string | null {
 
 function extractTags(topics: string[]): string[] {
   const skip = new Set(["web", "mobile", "cloud", "or"]);
-  return [...new Set(
-    topics.flatMap((t) => t.split("-")).filter((t) => !skip.has(t) && t.length > 1)
-  )].map((t) => t.charAt(0).toUpperCase() + t.slice(1));
+  return [
+    ...new Set(
+      topics
+        .flatMap((t) => t.split("-"))
+        .filter((t) => !skip.has(t) && t.length > 1),
+    ),
+  ].map((t) => t.charAt(0).toUpperCase() + t.slice(1));
 }
 
 export type Project = {
@@ -58,11 +62,17 @@ export async function getGitHubProjects(): Promise<Project[]> {
   const timer = setTimeout(() => controller.abort(), 10_000);
 
   try {
-    const res = await fetch(url, { headers, signal: controller.signal, next: { revalidate: 300 } } as RequestInit);
+    const res = await fetch(url, {
+      headers,
+      signal: controller.signal,
+      next: { revalidate: 300 },
+    } as RequestInit);
     clearTimeout(timer);
 
     if (!res.ok) {
-      console.error(`[github] fetch failed: ${res.status} ${res.statusText} — ${url}`);
+      console.error(
+        `[github] fetch failed: ${res.status} ${res.statusText} — ${url}`,
+      );
       return [];
     }
 

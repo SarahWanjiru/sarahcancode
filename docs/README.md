@@ -51,12 +51,12 @@ sarahcancode/
 
 ## Environment Variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `RESEND_API_KEY` | Yes | Resend API key for contact form emails |
-| `GITHUB_USERNAME` | Yes | GitHub username for projects API |
-| `GITHUB_TOKEN` | No | GitHub personal access token (increases rate limit to 5000/hr) |
-| `REVALIDATE_SECRET` | Yes | Secret token for the webhook revalidation endpoint |
+| Variable            | Required | Description                                                    |
+| ------------------- | -------- | -------------------------------------------------------------- |
+| `RESEND_API_KEY`    | Yes      | Resend API key for contact form emails                         |
+| `GITHUB_USERNAME`   | Yes      | GitHub username for projects API                               |
+| `GITHUB_TOKEN`      | No       | GitHub personal access token (increases rate limit to 5000/hr) |
+| `REVALIDATE_SECRET` | Yes      | Secret token for the webhook revalidation endpoint             |
 
 ## Last Updated
 

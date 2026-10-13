@@ -15,7 +15,10 @@ function extractImage(content: string): string {
 }
 
 function extractDescription(content: string): string {
-  const text = content.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const text = content
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
   return text.slice(0, 160) + (text.length > 160 ? "..." : "");
 }
 
@@ -43,7 +46,7 @@ export async function getMediumPosts(): Promise<MediumPost[]> {
   try {
     const res = await fetch(
       "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sarahcancode",
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 300 } },
     );
 
     if (!res.ok) return [];

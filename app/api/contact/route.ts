@@ -2,7 +2,12 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 function escapeHtml(str: string): string {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
 }
 
 // Simple in-memory rate limiting (for production, use Redis/Upstash)
@@ -20,7 +25,8 @@ function checkRateLimit(ip: string): boolean {
     return true;
   }
 
-  if (limit.count >= 3) { // Max 3 submissions per minute
+  if (limit.count >= 3) {
+    // Max 3 submissions per minute
     return false;
   }
 
@@ -33,13 +39,13 @@ export async function POST(request: Request) {
 
   try {
     // Get IP for rate limiting
-    const forwarded = request.headers.get('x-forwarded-for');
-    const ip = forwarded ? forwarded.split(',')[0].trim() : 'unknown';
+    const forwarded = request.headers.get("x-forwarded-for");
+    const ip = forwarded ? forwarded.split(",")[0].trim() : "unknown";
 
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
         { error: "Too many requests. Please try again later." },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -51,7 +57,7 @@ export async function POST(request: Request) {
       console.log("Spam detected via honeypot");
       return NextResponse.json(
         { message: "Message sent successfully" },
-        { status: 200 }
+        { status: 200 },
       );
     }
 
@@ -59,21 +65,21 @@ export async function POST(request: Request) {
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
         { error: "Invalid email format" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // change to 'portfolio@sarahcancode.dev' after domain verification
-      to: 'sarahlearn84@gmail.com',
+      from: "onboarding@resend.dev", // change to 'portfolio@sarahcancode.dev' after domain verification
+      to: "sarahlearn84@gmail.com",
       subject: `Contact Form: ${escapeHtml(subject)}`,
       replyTo: email,
       html: `
@@ -82,15 +88,15 @@ export async function POST(request: Request) {
         <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
         <p><strong>Message:</strong></p>
         <p>${escapeHtml(message)}</p>
-        ${contact ? `<p><strong>Preferred Contact:</strong> ${escapeHtml(contact)}</p>` : ''}
-      `
+        ${contact ? `<p><strong>Preferred Contact:</strong> ${escapeHtml(contact)}</p>` : ""}
+      `,
     });
 
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json(
         { error: "Failed to send message" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -98,13 +104,13 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       { message: "Message sent successfully" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Error processing contact form:", error);
     return NextResponse.json(
       { error: "Failed to send message" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
